@@ -41,7 +41,7 @@ class FeedlyFeed
   # This will dump the feed content into the database
   # WIP, havent finished this part
   def dump
-    self.stream["items"].map do |item|
+    self.stream["items"].each do |item|
       p item["title"]
       p item["id"] # feedly Article ID
       p item["published"]
