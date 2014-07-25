@@ -9,7 +9,8 @@ class CreateArticles < ActiveRecord::Migration
       t.string :title
       t.string :keywords
       t.text :summary
-      t.integer :feedly_id
+      t.text :feedly_id
+      t.integer :published, :limit => 8
       t.timestamps
 
     end
