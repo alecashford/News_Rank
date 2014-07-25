@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140724230829) do
   end
 
   create_table "feeds", force: true do |t|
+    t.integer  "user_id"
     t.string   "name"
     t.text     "url"
     t.text     "feedly_feed_id"
