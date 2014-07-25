@@ -25,14 +25,17 @@ ActiveRecord::Schema.define(version: 20140724230829) do
     t.string   "title"
     t.string   "keywords"
     t.text     "summary"
-    t.integer  "feedly_id"
+    t.text     "feedly_id"
+    t.integer  "published",     limit: 8
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "feeds", force: true do |t|
+    t.integer  "user_id"
     t.string   "name"
     t.text     "url"
+    t.text     "feedly_feed_id"
     t.integer  "num_subscribers"
     t.datetime "created_at"
     t.datetime "updated_at"
