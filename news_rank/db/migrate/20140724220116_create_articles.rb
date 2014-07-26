@@ -1,6 +1,7 @@
 class CreateArticles < ActiveRecord::Migration
   def change
     create_table :articles do |t|
+      t.belongs_to :feed
       #Article Metadata
       t.text :canonical_url #Article's full URL
       t.text :site_url #URL for feed website
