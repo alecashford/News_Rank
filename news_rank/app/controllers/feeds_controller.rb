@@ -1,7 +1,7 @@
+class FeedsController < ApplicationController
 
-class FeedCreator
 
-  def from_opml(file)
+ def from_opml(file)
     f = File.open(file)
     doc = Nokogiri::XML(f)
     doc.xpath("//outline").each do |x|
@@ -24,4 +24,5 @@ class FeedCreator
       feed.feedly_feed_id = result['results'][0]['feedId']
       feed.save
   end
+
 end

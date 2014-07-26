@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get "/users/sign_out" => "devise/sessions#destroy"
   end
 
+  get "articles", to: "articles#get_all_articles"
   #   get 'products/:id' => 'catalog#view'
 
 
