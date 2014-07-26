@@ -1,0 +1,184 @@
+body {
+  margin:0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;    
+}
+
+.sidebar {
+  width: 230px;
+  height: 100%;
+  position: fixed;
+  background-color: #1A1A1C;
+  color: #fff;
+  font-size: 14px;
+}
+
+.scrollable {
+  width: 100%;
+  height: 100%;
+  background: #262626;
+  overflow: auto;
+  position: absolute;
+  margin: 0px;
+  padding: 0px;
+  font-size: 0px;
+}
+
+.article-list {
+  left: 230px;
+  width: auto;
+  height: 100%;
+  position: fixed;
+  overflow: hidden;
+  right: 0;
+  background: #0cf;
+  color: #000;
+}
+
+.item-box {
+  display: inline-block;
+  background-color: purple;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 230px;
+  width: 320px;
+  font-size: 16px;
+  font-weight: 700;
+  -webkit-box-sizing: border-box;
+  padding: 20px;
+  color: #fff;
+}
+
+.item p {
+  margin: 0px;
+}
+
+#logo {
+  font-family: 'Special Elite';
+  display: block;
+  width: 100%;
+  height: 60px;
+  background-color: #FB8947;
+  color: #fff;
+  font-size: 32px;
+  text-align: center;
+  line-height: 60px;
+}
+
+.menu-wrap {
+  padding: 20px;
+}
+
+.sidebar-header {
+  color: #444;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.menu-icon,
+.menu-text {
+  display: inline-block;
+}
+
+.menu-text {
+  padding-left: 15px;
+}
+
+.menu-item {
+  color: #AAA;
+  margin-bottom: 20px;
+}
+
+.menu-item:hover {
+  color: #FB8947;
+}
+
+.active {
+  color: #FFF;
+}
+
+#category .sidebar-header {
+  margin-left: 20px;
+}
+
+#category .item {
+  font-family: 'Lato', sans-serif;
+  text-shadow: 2px 2px #000;
+  display: block;
+  width: auto;
+  height: 16px;
+  color: #fff;
+  font-size: 16px;
+  text-align: right;
+  line-height: 16px;
+  padding: 20px;
+  margin-bottom: 1px;
+  background-color: #111;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+#category .technology {
+  background-image: url('http://www.blogcdn.com/www.engadget.com/media/2013/05/google-glass-box-340.jpg');
+}
+
+#category .business {
+  background-image: url('http://www.datalabs.com.au/wp-content/uploads/2013/07/finance-dashboards-data-visualization-image.jpg');
+}
+
+#category .design {
+  background-image: url('http://colourlovers.com.s3.amazonaws.com/blog/wp-content/uploads/2008/04/crowded_crayon_colors.jpg');
+}
+
+#category .startups {
+  background-image: url('http://smallbiztrends.com/wp-content/uploads/2013/10/why-startups-fail-557x389.jpg');
+}
+
+#category .fashion {
+  background-image: url('http://www.ellecanada.com/img/photos/biz/resized_images/elleca/00018/608x304_photo18254.jpg');
+}
+
+#category .gaming {
+  background-image: url('http://rack.3.mshcdn.com/media/ZgkyMDEyLzEyLzA0L2E3L3N1cGVybWFyaW9iLmJlei5qcGcKcAl0aHVtYgkxMjAweDYyNyMKZQlqcGc/5f80b587/b3b/-super-mario-bros-celebrates-its-25th-anniversary-a905d82ecb.jpg');
+}
+
+#bottom-bar {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  background: rgba(0, 0, 0, .8);
+  padding: 20px 20px;
+  padding-left: 230px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+  -webkit-box-sizing: border-box;
+}
+
+.bb {
+  display: inline-block;
+  padding: 12px;
+  margin: 0px 5px;
+}
+
+#bottom-bar .active {
+  background-color: #FB8947;
+  border-radius: 20px;
+}
+
+#bottom-bar .filter {
+  display: inline-block;
+  padding-right: 290px;
+}
+
+#bottom-bar .sort-by {
+  display: inline-block;
+}
+
+
