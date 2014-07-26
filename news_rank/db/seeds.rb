@@ -6,7 +6,8 @@ feed = Feed.create(
 )
 
 user = User.create(
-  email: "ruhroh@gmail.com")
+  email: "ruhroh@gmail.com",
+  password: "12345678")
 
 user.feeds << feed
 
@@ -20,7 +21,8 @@ article = Article.create(
   title: "Lady goes GaGa",
   keywords: "cats, gaga, xxx",
   summary: "<p>lore ummmmm ipsummmmmmmmmmmm</p>",
-  feedly_id: feed.id,
+  feed_id: feed.id,
+  feedly_id: "feedlyid",
   published: 07/07/07,
   fb_share_count: 27,
   fb_like_count: 911,
