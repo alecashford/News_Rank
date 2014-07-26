@@ -1,14 +1,23 @@
 module GetScores
   class FacebookFetcher
-    attr_reader :shares, :likes, :comments, :total, :urls
-    def initialize(url)
-      fb_response = HTTParty.get("http://api.facebook.com/restserver.php?method=links.getStats&format=json&urls=#{url}")
-      @likes = fb_response[0]["like_count"]
-      @comments = fb_response[0]["comment_count"]
-      @shares = fb_response[0]["share_count"]
+    attr_reader :shares, :likes, :comments, :total, :urls, :scores
+    def initialize(*urls)
+      @urls = urls.join(",")
+      @fb_response = HTTParty.get("http://api.facebook.com/restserver.php?method=links.getStats&format=json&urls=#{@urls}")
+      @scores = {}
+      loop_through_scores
     end
     def total
       @likes + @comments + @shares
+    end
+    def loop_through_scores
+      @fb_response.each do |article|
+        url = article["url"]
+        likes = article["like_count"]
+        comments = article["comment_count"]
+        shares = article["share_count"]
+        @scores.merge!(url => {:likes => likes, :comments => comments, :shares => shares})
+      end
     end
   end
 
