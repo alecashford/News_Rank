@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20140726180302) do
   enable_extension "plpgsql"
 
   create_table "articles", force: true do |t|
+    t.integer  "feed_id"
     t.text     "canonical_url"
     t.text     "site_url"
     t.text     "visual_url"
@@ -40,7 +41,6 @@ ActiveRecord::Schema.define(version: 20140726180302) do
   end
 
   create_table "feeds", force: true do |t|
-    t.integer  "user_id"
     t.string   "name"
     t.text     "url"
     t.text     "feedly_feed_id"
