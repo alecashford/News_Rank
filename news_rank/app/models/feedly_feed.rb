@@ -1,7 +1,7 @@
 
 class FeedlyFeed
   BASE_URI = "http://cloud.feedly.com/v3/"
-
+  attr_reader :feed_id
   def initialize(feed_id)
     @feed_id = feed_id
   end
@@ -39,14 +39,16 @@ class FeedlyFeed
   # This will dump the feed content into the database
   # WIP, havent finished this part
   def dump
+    feed = Feed.find
     self.stream["items"].each do |item|
       a = Article.new
       a.title = item["title"]
-      a.feedly_id = item["id"] # feedly Article ID
+      a.feedly_id = item["origin"]["streamId"] # feedly feed/stream ID
       a.published = item["published"]
       a.author = item["author"]
-      canonical_url = item["alternate"][0]["href"] # permalink
+      a.canonical_url = item["alternate"][0]["href"] # permalink
       a.summary = item["summary"]["content"] # this is HTML
+      a.site_url = item["origin"]["htmlUrl"]
       if item["visual"]
         a.visual_url = item["visual"]["url"]
         a.visual_height = item["visual"]["height"]
@@ -54,6 +56,7 @@ class FeedlyFeed
       end
       a.save
     end
+    p "done"
   end
 
 end
