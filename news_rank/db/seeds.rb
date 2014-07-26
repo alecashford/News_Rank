@@ -23,7 +23,7 @@ article = Article.create(
   summary: "<p>lore ummmmm ipsummmmmmmmmmmm</p>",
   feed_id: feed.id,
   feedly_id: "feedlyid",
-  published: 07/07/07,
+  published: 22222222222222,
   fb_share_count: 27,
   fb_like_count: 911,
   fb_comment_count: 666,
