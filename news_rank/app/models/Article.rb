@@ -1,3 +1,3 @@
 class Article < ActiveRecord::Base
-  has_many :scores
+ belongs_to :feed
 end
