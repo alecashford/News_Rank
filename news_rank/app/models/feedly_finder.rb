@@ -1,4 +1,4 @@
-class FeedlyFind
+class FeedlyFinder
   def initialize(search)
     @search = search
   end

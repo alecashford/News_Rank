@@ -1,16 +1,23 @@
 class FeedsController < ApplicationController
 
- def from_opml(file)
+  def index
+    user=current_user
+    feeds = user.feeds
+  end
+
+  def from_opml(file)
     f = File.open(file)
     doc = Nokogiri::XML(f)
     doc.xpath("//outline").each do |x|
       unless x['xmlUrl']==nil
         feed = Feed.new
-        feed.url = x['xmlUrl']
-        feed.name = x['title']
-        feed.feedly_feed_id = "feed/#{x['xmlUrl']}"
-        feed.save
+          feed.url = x['xmlUrl']
+          feed.name = x['title']
+          feed.feedly_feed_id = "feed/#{x['xmlUrl']}"
+          feed.save
         associate_user(feed)
+        helper = FeedlyHelper.new(feed.feedly_feed_id)
+        helper.dump
       end
     end
   end
@@ -24,7 +31,9 @@ class FeedsController < ApplicationController
       feed.num_subscribers = result['results'][0]['subscribers']
       feed.feedly_feed_id = result['results'][0]['feedId']
       feed.save
-      associate_user(feed)
+    associate_user(feed)
+    helper = FeedlyHelper.new(feed.feedly_feed_id)
+    helper.dump
   end
 
   def associate_user(feed)
