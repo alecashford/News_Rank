@@ -35,8 +35,7 @@ class FeedlyHelper
     self.stream["continuation"]
   end
 
-  # This will dump the feed content into the database
-  # WIP, havent finished this part
+  # This will dump the feed content into the databases
   def dump
     self.stream["items"].each do |item|
       a = Article.new
@@ -52,8 +51,8 @@ class FeedlyHelper
         a.visual_height = item["visual"]["height"]
         a.visual_width = item["visual"]["width"]
       end
-      a.save
     end
+    true
   end
 
 end

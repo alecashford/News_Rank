@@ -2,7 +2,9 @@ feed = Feed.create(
   name: "Engadget",
   url: "http://www.engadget.com",
   feedly_feed_id: "feed/http://feeds.engadget.com/weblogsinc/engadget",
-  num_subscribers: 427
+  num_subscribers: 427,
+  description: "lorum impsum",
+  topics: "sex, drugs, rocknroll"
 )
 
 user = User.create(
