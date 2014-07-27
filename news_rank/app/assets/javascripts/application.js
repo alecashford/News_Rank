@@ -12,5 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require angular
+// require main
+//= require ng-infinite-scroll
+//= require modules
+//= require controllers
 //= require turbolinks
 //= require_tree .
