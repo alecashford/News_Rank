@@ -3,6 +3,7 @@ class FeedsController < ApplicationController
   def index
     user=current_user
     feeds = user.feeds
+    # update articles in feed
   end
 
   #Currently this leaves the following fields blank:
@@ -17,6 +18,10 @@ class FeedsController < ApplicationController
           feed.name = x['title']
           feed.feedly_feed_id = "feed/#{x['xmlUrl']}"
           feed.save
+          #assumes if not saved, feed already exists
+        if !feed.save
+          feed = Feed.find_by_feedly_feed_id(feed.feedly_feed_id)
+        end
         associate_user(feed)
         helper = FeedlyHelper.new(feed.feedly_feed_id)
         helper.dump
@@ -33,21 +38,21 @@ class FeedsController < ApplicationController
       feed.num_subscribers = result['results'][0]['subscribers']
       feed.feedly_feed_id = result['results'][0]['feedId']
       feed.description = result['results'][0]['description']
-      feed.topics = result['results'][0]['deliciousTags'].join(',')
+      if result['results'][0]['deliciousTags']
+        feed.topics = result['results'][0]['deliciousTags'].join(',')
+      end
       feed.save
+    if !feed.save
+      feed = Feed.find_by_feedly_feed_id(feed.feedly_feed_id)
+    end
     associate_user(feed)
     helper = FeedlyHelper.new(feed.feedly_feed_id)
     helper.dump
   end
 
   def associate_user(feed)
-    user = current_user
+    user = User.find(1)
     user.feeds << feed
-  end
-
-  def destroy
-    feed=Feed.find(params[:id])
-    feed.destroy
   end
 
 end
