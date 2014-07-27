@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>NewsRank.io</title>
   <link rel="stylesheet" type="text/css" href="style.css">
-  <link href='http://fonts.googleapis.com/css?family=Lato:400,700|Special+Elite' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
   <div class="sidebar">
   	<div id="logo">NewsRank</div>
     <div class="menu-wrap">
-      <div class="search">Search</div>
-      <div class="sidebar-header">MENU</div>
-      <div class="menu-item active">
-        <div class="menu-icon"><i class="fa fa-camera"></i></div>
-        <div class="menu-text"><a href = "javascript:void(0)" onclick = "document.getElementById('my-feeds').style.display='block';document.getElementById('fade').style.display='block'">Manage Feeds</a></div>
+      <div class="search-wrapper">
+        <div class="search"><i class="fa fa-search"></i>Search</div>
       </div>
-      <div class="menu-item">
+      <div class="sidebar-header">MENU</div>
+      <a href = "javascript:void(0)" onclick = "document.getElementById('my-feeds').style.display='block';document.getElementById('fade').style.display='block'" class="menu-item">
+        <div class="menu-icon"><i class="fa fa-camera"></i></div>
+        <div class="menu-text">Manage Feeds</div>
+      </a>
+      <a href="#" class="menu-item">
         <div class="menu-icon"><i class="fa fa-camera"></i></div>
         <div class="menu-text">Menu Item 2</div>
-      </div>
-      <div class="menu-item">
+      </a>
+      <a href="#" class="menu-item">
         <div class="menu-icon"><i class="fa fa-camera"></i></div>
         <div class="menu-text">Menu Item 3</div>
-      </div>
-      <div class="menu-item">
+      </a>
+      <a href="#" class="menu-item">
         <div class="menu-icon"><i class="fa fa-camera"></i></div>
         <div class="menu-text">Menu Item 4</div>
-      </div>
+      </a>
     </div>
     <div id="category">
-      <div class="sidebar-header">CATEGORIES</div>
+      <div class="sidebar-header">RECOMMENDED</div>
       <div class="item technology">Technology</div>
       <div class="item business">Business</div>
       <div class="item design">Design</div>
@@ -140,7 +142,7 @@
 
   <div id="bottom-bar">
     <div class="box-left">
-      <span class="bb">FILTER:</span>
+      <span class="bb-label">FILTER:</span>
       <span class="bb active">24 HOURS</span>
       <span class="bb">7 DAYS</span>
       <span class="bb">14 DAYS</span>
@@ -149,21 +151,40 @@
       <a href = "javascript:void(0)" onclick = "document.getElementById('my-settings').style.display='block';document.getElementById('fade').style.display='block'"><i class="fa fa-cog"></i></a>
     </div>
     <div class="box-right">
-      <span class="bb">SORT BY:</span>
+      <span class="bb-label">SORT BY:</span>
       <span class="bb active">TIME PUBLISHED</span>
       <span class="bb">NEWS RANK</span>
     </div>
   </div>
 
   <div id="my-feeds" class="popup">
-    <h1>My Feeds</h1>  
+    <div class="popup-header">
+      <div class="popup-header-left"><h1>Manage Feeds</h1></div>
+      <div class="popup-header-right">
+        <span class="button">Add Subscription</span>
+      </div>
+    </div>
+    <table>
+      <tr>
+        <td>Unsubscribe</td>
+        <td>The Verge</td>
+        <td>Your source for tech news and gadgets</td>
+        <td>Gadgets, Technology, Startups</td>
+      </tr>
+      <tr>
+        <td>The Verge</td>
+        <td>Your source for tech news and gadgets</td>
+        <td>Gadgets, Technology, Startups</td>
+        <td>Unsubscribe</td>
+      </tr>
+    </table>  
     <a href = "javascript:void(0)" onclick = "document.getElementById('my-feeds').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
   </div>
 
-  <div id="my-settings" class="popup my-settings">  
+<!--   <div id="my-settings" class="popup my-settings">  
     <h1>My Settings</h1>
     <a href = "javascript:void(0)" onclick = "document.getElementById('my-settings').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
-  </div>
+  </div> -->
 
   <div id="fade" class="black_overlay"></div>
 
