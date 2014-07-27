@@ -3,6 +3,7 @@ class FeedsController < ApplicationController
   def index
     user=current_user
     feeds = user.feeds
+    # update articles in feed
   end
 
   #Currently this leaves the following fields blank:
