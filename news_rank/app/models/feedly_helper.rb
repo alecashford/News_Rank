@@ -1,4 +1,3 @@
-
 class FeedlyHelper
   BASE_URI = "http://cloud.feedly.com/v3/"
   attr_reader :feed_id
