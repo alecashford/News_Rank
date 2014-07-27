@@ -1,4 +1,4 @@
-class FeedlyFind
+class FeedlyFinder
   def initialize(search)
     @search = search
   end
@@ -16,6 +16,7 @@ class FeedlyFind
       feed_hash['subscribers'] = feed['subscribers']
       feed_hash['description'] = feed['description']
       feed_hash['feedId'] = feed['feedId']
+      feed_hash['topics'] = feed['deliciousTags']
       results << feed_hash
     end
     results

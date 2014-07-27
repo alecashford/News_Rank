@@ -1,5 +1,5 @@
 
-class FeedlyFeed
+class FeedlyHelper
   BASE_URI = "http://cloud.feedly.com/v3/"
   attr_reader :feed_id
   def initialize(feed_id)
@@ -39,7 +39,6 @@ class FeedlyFeed
   # This will dump the feed content into the database
   # WIP, havent finished this part
   def dump
-    feed = Feed.find
     self.stream["items"].each do |item|
       a = Article.new
       a.title = item["title"]
@@ -56,7 +55,6 @@ class FeedlyFeed
       end
       a.save
     end
-    p "done"
   end
 
 end
