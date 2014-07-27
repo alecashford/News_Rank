@@ -45,9 +45,4 @@ class FeedsController < ApplicationController
     user.feeds << feed
   end
 
-  def destroy
-    feed=Feed.find(params[:id])
-    feed.destroy
-  end
-
 end
