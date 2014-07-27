@@ -2,7 +2,8 @@ class ArticlesController < ApplicationController
 
   def get_all_articles
     result = []
-    user = current_user
+    # user = current_user
+    user = User.find(1)
     feeds = user.feeds
     feeds.each do |feed|
 

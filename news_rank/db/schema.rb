@@ -45,8 +45,6 @@ ActiveRecord::Schema.define(version: 20140726180302) do
     t.text     "url"
     t.text     "feedly_feed_id"
     t.integer  "num_subscribers"
-    t.text     "description"
-    t.text     "topics"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
