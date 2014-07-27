@@ -5,6 +5,8 @@ class FeedsController < ApplicationController
     feeds = user.feeds
   end
 
+  #Currently this leaves the following fields blank:
+  # number of subscribers, description, topics
   def from_opml(file)
     f = File.open(file)
     doc = Nokogiri::XML(f)
@@ -23,13 +25,15 @@ class FeedsController < ApplicationController
   end
 
   def from_url(feed_url)
-    finder = FeedlyFind.new(feed_url)
+    finder = FeedlyFinder.new(feed_url)
     result = finder.find
     feed = Feed.new
       feed.url = result["results"][0]["website"]
       feed.name = result['results'][0]['title']
       feed.num_subscribers = result['results'][0]['subscribers']
       feed.feedly_feed_id = result['results'][0]['feedId']
+      feed.description = result['results'][0]['description']
+      feed.topics = result['results'][0]['deliciousTags'].join(',')
       feed.save
     associate_user(feed)
     helper = FeedlyHelper.new(feed.feedly_feed_id)
