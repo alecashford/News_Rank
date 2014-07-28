@@ -4,7 +4,11 @@ class FeedlyFinder
   end
 
   def find
-    HTTParty.get("http://cloud.feedly.com/v3/search/feeds?q=#{@search}")
+    begin
+      HTTParty.get("http://cloud.feedly.com/v3/search/feeds?q=#{@search}")
+    rescue
+      #something here if not successful
+    end
   end
 
   def results

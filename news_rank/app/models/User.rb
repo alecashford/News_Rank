@@ -9,10 +9,9 @@ class User < ActiveRecord::Base
   def articles
     articles = []
     self.feeds.each do |feed|
+      feed.update_feed
       articles << feed.articles
     end
-    p "hey"
-    p articles.to_json
     articles.to_json
   end
 end
