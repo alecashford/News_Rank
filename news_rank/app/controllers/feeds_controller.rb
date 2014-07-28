@@ -29,9 +29,8 @@ class FeedsController < ApplicationController
     end
   end
 
-  def from_url(feed_url)
-    p "wassup"
-    finder = FeedlyFinder.new(feed_url)
+  def from_url
+    finder = FeedlyFinder.new(params[:url])
     result = finder.find
     feed = Feed.new
       feed.url = result["results"][0]["website"]
