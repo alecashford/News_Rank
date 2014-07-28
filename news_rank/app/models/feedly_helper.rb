@@ -69,7 +69,6 @@ class FeedlyHelper
 
         a.twitter_count = GetScores::TwitterFetcher.new(a.canonical_url).count
         reddit_scores = GetScores::RedditFetcher.new(a.canonical_url)
-        p reddit_scores
         a.reddit_score = reddit_scores.score
         a.reddit_comment_count = reddit_scores.num_comments
         fb_scores = GetScores::FacebookFetcher.new(a.canonical_url).scores
