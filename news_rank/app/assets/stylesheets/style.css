@@ -2,8 +2,18 @@ body {
   margin:0;
   padding: 0;
   font-family: 'Lato', sans-serif;
-  background-image: url('images/bg4.png');
-  /*min-width: 1280px;*/
+  background-image: url('http://subtlepatterns.com/patterns/worn_dots.png');
+  font-size: 14px;
+  color: #797979;
+}
+
+a {
+  color: #b6b6b6;
+  text-decoration: none;
+}
+
+.pull-right {
+  float: right!important;
 }
 
 .sidebar {
@@ -410,4 +420,77 @@ body {
 .search-bar input {
   border: none;
   background-color: transparent;
+}
+
+/* LOGIN PAGES */
+
+.login-wrapper {
+  max-width: 330px;
+  margin: 100px auto 0;
+  background: #fff;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  box-shadow: 0px 0px 40px #aaa;
+}
+
+.login-heading {
+  margin: 0;
+  padding: 20px 15px;
+  text-align: center;
+  background: #41cac0;
+  border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  color: #fff;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+}
+
+.form-login-wrapper {
+  padding: 20px;
+}
+
+input[type="email"],
+input[type="password"] {
+  margin-bottom: 15px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid #eaeaea;
+  box-shadow: none;
+  font-size: 12px;
+  padding: 10px;
+  height: auto;
+  box-sizing: border-box;
+  width: 100%;
+}
+.button-sign-in:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
+} 
+
+.button-sign-in {
+  background: #f67a6e;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin-bottom: 20px;
+  display: block;
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+  padding: 10px 16px;
+  font-family: "Lato";
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 6px;
+  border: none;
+}
+
+.remember-me {
+  margin-bottom: 14px;
+  color: #b6b6b6;
+  font-weight: 300;
+  font-size: 14px;
 }

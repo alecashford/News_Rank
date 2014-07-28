@@ -17,10 +17,10 @@
         <div class="menu-icon"><i class="fa fa-camera"></i></div>
         <div class="menu-text">Add Feeds (temp)</div>
       </a>
-      <a href="#" class="menu-item">
-        <div class="menu-icon"><i class="fa fa-camera"></i></div>
-        <div class="menu-text">Sign Out (temp)</div>
-      </a>
+    <%= link_to(destroy_user_session_path, method: :delete, class: 'menu-item') do %>
+      <div class="menu-icon"><i class="fa fa-camera"></i></div>
+      <div class="menu-text">Sign Out</div>
+    <% end %>
     </div>
     <div id="category">
       <div class="sidebar-header">RECOMMENDED</div>
@@ -99,9 +99,9 @@
       <p>Work In Progress. Styling Pending</p>
       <div class="add-feed-options">
         <div class="option-box">
-          <form>
+          <form ng-submit="addFeedFromUrl()">
             <h3>By Feed URL</h3>
-            <input type="text" name="feed_URL"></br>
+            <input type="text" name="feed_URL" ng-model="newFeedUrl"></br>
             <input type="submit" value="Submit">
           </form>
         </div>
