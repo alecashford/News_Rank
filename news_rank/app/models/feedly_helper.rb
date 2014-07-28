@@ -64,12 +64,18 @@ class FeedlyHelper
           a.visual_height = item["visual"]["height"]
           a.visual_width = item["visual"]["width"]
         end
-        a.twitter_count=GetScores::TwitterFetcher.new(a.site_url).count
-        a.reddit_score=GetScores::RedditFetcher.new(a.site_url).score
-        fb_scores = GetScores::FacebookFetcher.new(a.site_url).scores
-        a.fb_share_count = fb_scores[a.site_url][:shares]
-        a.fb_like_count = fb_scores[a.site_url][:likes]
-        a.fb_comment_count = fb_scores[a.site_url][:comments]
+
+        puts a.canonical_url
+
+        a.twitter_count = GetScores::TwitterFetcher.new(a.canonical_url).count
+        reddit_scores = GetScores::RedditFetcher.new(a.canonical_url)
+        p reddit_scores
+        a.reddit_score = reddit_scores.score
+        a.reddit_comment_count = reddit_scores.num_comments
+        fb_scores = GetScores::FacebookFetcher.new(a.canonical_url).scores
+        a.fb_share_count = fb_scores[a.canonical_url][:shares]
+        a.fb_like_count = fb_scores[a.canonical_url][:likes]
+        a.fb_comment_count = fb_scores[a.canonical_url][:comments]
 
         a.save
       end
