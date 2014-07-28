@@ -24,7 +24,7 @@ class FeedlyHelper
     end
   end
 
-  # This gets the last update of the feed
+  # This gets timestamp of the last update of the feed by feedly
   def last_update
     self.stream["updated"]
   end
@@ -51,6 +51,7 @@ class FeedlyHelper
         a.visual_height = item["visual"]["height"]
         a.visual_width = item["visual"]["width"]
       end
+      a.save
     end
     true
   end

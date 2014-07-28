@@ -51,7 +51,7 @@ class FeedsController < ApplicationController
   end
 
   def associate_user(feed)
-    user = User.find(1)
+    user = current_user
     user.feeds << feed
   end
 
