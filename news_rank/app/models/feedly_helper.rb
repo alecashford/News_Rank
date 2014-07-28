@@ -1,3 +1,5 @@
+include GetScores
+
 class FeedlyHelper
   BASE_URI = "http://cloud.feedly.com/v3/"
   attr_reader :feed_id
@@ -51,6 +53,13 @@ class FeedlyHelper
         a.visual_height = item["visual"]["height"]
         a.visual_width = item["visual"]["width"]
       end
+
+      a.twitter_count=GetScores::TwitterFetcher.new(a.site_url).count
+      a.reddit_score=GetScores::RedditFetcher.new(a.site_url).score
+      fb_scores = GetScores::FacebookFetcher.new(a.site_url).scores
+      a.fb_share_count = fb_scores[a.site_url][:shares]
+      a.fb_like_count = fb_scores[a.site_url][:likes]
+      a.fb_comment_count = fb_scores[a.site_url][:comments]
       a.save
     end
     true
