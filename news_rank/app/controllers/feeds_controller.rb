@@ -30,6 +30,7 @@ class FeedsController < ApplicationController
   end
 
   def from_url(feed_url)
+    p "wassup"
     finder = FeedlyFinder.new(feed_url)
     result = finder.find
     feed = Feed.new

@@ -99,9 +99,9 @@
       <p>Work In Progress. Styling Pending</p>
       <div class="add-feed-options">
         <div class="option-box">
-          <form>
+          <form ng-submit="addFeedFromUrl()">
             <h3>By Feed URL</h3>
-            <input type="text" name="feed_URL"></br>
+            <input type="text" name="feed_URL" ng-model="newFeedUrl"></br>
             <input type="submit" value="Submit">
           </form>
         </div>
