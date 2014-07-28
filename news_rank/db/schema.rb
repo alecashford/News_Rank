@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724230829) do
+ActiveRecord::Schema.define(version: 20140726180302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "articles", force: true do |t|
+    t.integer  "feed_id"
     t.text     "canonical_url"
+    t.text     "site_url"
     t.text     "visual_url"
     t.integer  "visual_height"
     t.integer  "visual_width"
@@ -25,20 +27,8 @@ ActiveRecord::Schema.define(version: 20140724230829) do
     t.string   "title"
     t.string   "keywords"
     t.text     "summary"
-    t.integer  "feedly_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "feeds", force: true do |t|
-    t.string   "name"
-    t.text     "url"
-    t.integer  "num_subscribers"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "scores", force: true do |t|
+    t.text     "feedly_id"
+    t.integer  "published",            limit: 8
     t.integer  "fb_share_count"
     t.integer  "fb_like_count"
     t.integer  "fb_comment_count"
@@ -50,11 +40,23 @@ ActiveRecord::Schema.define(version: 20140724230829) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "username"
-    t.string   "password"
+  create_table "feeds", force: true do |t|
+    t.string   "name"
+    t.text     "url"
+    t.text     "feedly_feed_id"
+    t.integer  "num_subscribers"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "subscriptions", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "feed_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

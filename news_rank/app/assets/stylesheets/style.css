@@ -1,0 +1,328 @@
+body {
+  margin:0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  background-image: url('/assets/bg3.png');
+}
+
+.sidebar {
+  width: 230px;
+  height: 100%;
+  position: fixed;
+  background-color: #1A1A1C;
+  color: #fff;
+  font-size: 14px;
+  box-shadow: 0px 0px 10px 0px #333;
+}
+
+.search {
+  display: block;
+  background-color: #fff;
+  width: 100%;
+  /*height: 50px;*/
+  border-radius: 18px;
+  padding: 10px 0px 10px 20px;
+  margin-bottom: 20px;
+  color: #000;  
+  -webkit-box-sizing: border-box;
+  color: #999;
+}
+
+.scrollable {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  position: absolute;
+  margin: 0px;
+  padding: 0px;
+  font-size: 0px;
+}
+
+.scrollable li {
+  display: inline-block;
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+
+.scrollable a {
+  text-decoration: none;
+}
+
+.scrollable a:hover {
+  color: #51D2B7;
+}
+
+.article-list {
+  left: 230px;
+  width: auto;
+  height: 100%;
+  position: fixed;
+  overflow: hidden;
+  right: 0;
+  color: #000;
+  padding-top: 15px;
+}
+
+.item-box {
+  display: inline-block;
+  background-color: #fff;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 320px;
+  width: 320px;
+  font-size: 16px;
+  font-weight: 700;
+  -webkit-box-sizing: border-box;
+  /*padding: 20px;*/
+  color: #fff;
+}
+
+.item-box-title {
+  display: table;
+  position: absolute;
+  /*height: 230px;*/
+  width: 320px;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.item-box-title:hover {
+  background-color: rgba(0,0,0,1);
+}
+
+.item-box-title span {
+  display: table-cell;
+  /*text-align: center;*/
+  vertical-align: top;
+  padding: 15px 20px;
+  line-height: 22px;
+}
+
+.item-box-title span .source-text{
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.item p {
+  margin: 0px;
+}
+
+#logo {
+  font-family: 'Lato';
+  display: block;
+  width: 100%;
+  height: 60px;
+  /*background-color: #FB8947;*/
+  background-color: #51D2B7;
+  color: #fff;
+  font-size: 32px;
+  text-align: center;
+  line-height: 60px;
+}
+
+.menu-wrap {
+  padding: 20px;
+}
+
+.sidebar-header {
+  color: #444;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.menu-icon,
+.menu-text {
+  display: inline-block;
+}
+
+.menu-text {
+  padding-left: 15px;
+}
+
+.menu-item {
+  color: #AAA;
+  margin-bottom: 20px;
+}
+
+.menu-item:hover {
+  color: #51D2B7;
+}
+
+.active {
+  color: #FFF;
+}
+
+#category .sidebar-header {
+  margin-left: 20px;
+}
+
+#category .item {
+  font-family: 'Lato', sans-serif;
+  text-shadow: 2px 2px #000;
+  display: block;
+  width: auto;
+  height: 16px;
+  color: #fff;
+  font-size: 16px;
+  text-align: right;
+  line-height: 16px;
+  padding: 20px;
+  margin-bottom: 1px;
+  background-color: #111;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+#category .technology {
+  background-image: url('http://www.blogcdn.com/www.engadget.com/media/2013/05/google-glass-box-340.jpg');
+}
+
+#category .business {
+  background-image: url('http://www.datalabs.com.au/wp-content/uploads/2013/07/finance-dashboards-data-visualization-image.jpg');
+}
+
+#category .design {
+  background-image: url('http://colourlovers.com.s3.amazonaws.com/blog/wp-content/uploads/2008/04/crowded_crayon_colors.jpg');
+}
+
+#category .startups {
+  background-image: url('http://smallbiztrends.com/wp-content/uploads/2013/10/why-startups-fail-557x389.jpg');
+}
+
+#category .fashion {
+  background-image: url('http://www.ellecanada.com/img/photos/biz/resized_images/elleca/00018/608x304_photo18254.jpg');
+}
+
+#category .gaming {
+  background-image: url('http://rack.3.mshcdn.com/media/ZgkyMDEyLzEyLzA0L2E3L3N1cGVybWFyaW9iLmJlei5qcGcKcAl0aHVtYgkxMjAweDYyNyMKZQlqcGc/5f80b587/b3b/-super-mario-bros-celebrates-its-25th-anniversary-a905d82ecb.jpg');
+}
+
+#bottom-bar {
+  display: table;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  background: rgba(0, 0, 0, .80);
+  padding: 20px 20px;
+  /*padding-left: 230px;*/
+  text-align: left;
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+  -webkit-box-sizing: border-box;
+}
+
+.bb {
+  display: inline-block;
+  padding: 12px;
+  margin: 0px 5px;
+}
+
+#bottom-bar .active {
+  background-color: #51D2B7;
+  border-radius: 20px;
+}
+
+#bottom-bar .box-left {
+  display: table-cell;
+  /*padding-right: 290px;*/
+  width: 33%;
+}
+
+#bottom-bar .box-middle {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 24px;
+  width: 33%;
+}
+
+#bottom-bar .box-middle i {
+  background-color: #51D2B7;
+  width: 25px;
+  padding: 8px;
+  margin: 0px 5px;
+  border-radius: 24px;
+  text-decoration: none;
+  color: #fff;
+}
+
+#bottom-bar .box-middle i {
+  background-color: #666;
+  width: 25px;
+  padding: 8px;
+  margin: 0px 5px;
+  border-radius: 24px;
+  text-decoration: none;
+  color: #fff;
+}
+
+#bottom-bar .box-middle i:hover {
+  background-color: #51D2B7;
+}
+
+#bottom-bar .box-right {
+  display: table-cell;
+  width: 33%;
+  text-align: right;
+}
+
+/*.float-wrapper {
+  display: table;
+  z-index: 1;
+}*/
+
+/*.float-wrapper div {
+  display: table-cell; 
+  border: 5px solid #999;
+  width: 80%;
+  max-width: 960px;
+  min-height: 300px; 
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 50px;
+
+  position: absolute;
+  vertical-align: middle;
+}*/
+
+.black_overlay{
+  display: none;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index:1001;
+  -moz-opacity: 0.8;
+  opacity:.80;
+  filter: alpha(opacity=80);
+}
+
+.popup {
+  display: none;
+  position: absolute;
+  top: 10%;
+  left: 25%;
+  width: 50%;
+  min-height: 50%;
+  padding: 16px;
+  border: 10px solid #666;
+  border-radius: 20px;
+  background-color: white;
+
+  z-index:1002;
+  overflow: auto;
+}
+
+.my-settings {
+  top: 10%;
+  bottom: 12%;
+}
+
+
+

@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 gem 'devise'
 gem 'httparty'
 gem 'awesome_print'
+gem 'nokogiri'
+
+gem 'angularjs-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
@@ -33,6 +36,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'debugger'
 end
 
 group :test do
