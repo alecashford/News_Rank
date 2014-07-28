@@ -37,9 +37,11 @@ class FeedlyHelper
 
   # This will dump the feed content into the databases
   def dump
+    feed = Feed.find_by feedly_feed_id: @feed_id
     self.stream["items"].each do |item|
       a = Article.new
       a.title = item["title"]
+      a.feed_id = feed.id
       a.feedly_id = item["origin"]["streamId"] # feedly feed/stream ID
       a.published = item["published"]
       a.author = item["author"]

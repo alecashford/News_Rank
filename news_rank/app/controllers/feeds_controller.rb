@@ -48,6 +48,7 @@ class FeedsController < ApplicationController
     associate_user(feed)
     helper = FeedlyHelper.new(feed.feedly_feed_id)
     helper.dump
+    redirect_to '/'
   end
 
   def associate_user(feed)
