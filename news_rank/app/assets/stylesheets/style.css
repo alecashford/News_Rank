@@ -2,30 +2,49 @@ body {
   margin:0;
   padding: 0;
   font-family: 'Lato', sans-serif;
-  background-image: url('/assets/bg3.png');
+  background-image: url('http://subtlepatterns.com/patterns/worn_dots.png');
+  font-size: 14px;
+  color: #797979;
+}
+
+a {
+  color: #b6b6b6;
+  text-decoration: none;
+}
+
+.pull-right {
+  float: right!important;
 }
 
 .sidebar {
   width: 230px;
   height: 100%;
   position: fixed;
-  background-color: #1A1A1C;
+  background-color: #2A2D33;
   color: #fff;
-  font-size: 14px;
-  box-shadow: 0px 0px 10px 0px #333;
+  font-size: 12px;
+}
+
+.search-wrapper {
+  background-color: #191B1F;
+  padding: 5px 0px;
+  margin-bottom: 20px;
+  font-size: 16px;
 }
 
 .search {
   display: block;
-  background-color: #fff;
-  width: 100%;
-  /*height: 50px;*/
-  border-radius: 18px;
-  padding: 10px 0px 10px 20px;
-  margin-bottom: 20px;
-  color: #000;  
+  margin-left: auto;
+  margin-right: auto;
+  width: 210px;
+  border-radius: 3px;
+  padding: 8px 10px;
   -webkit-box-sizing: border-box;
-  color: #999;
+  color: #fff;
+}
+
+.search i{
+  margin-right: 15px;
 }
 
 .scrollable {
@@ -34,14 +53,15 @@ body {
   overflow: auto;
   position: absolute;
   margin: 0px;
-  padding: 0px;
+  padding-top: 13px;
+  padding-left: 0px;
   font-size: 0px;
 }
 
 .scrollable li {
   display: inline-block;
-  margin-left: 15px;
-  margin-bottom: 15px;
+  margin-left: 13px;
+  margin-bottom: 13px;
 }
 
 .scrollable a {
@@ -60,11 +80,12 @@ body {
   overflow: hidden;
   right: 0;
   color: #000;
-  padding-top: 15px;
+  min-width: 1000px;
 }
 
 .item-box {
   display: inline-block;
+  font-family: "Roboto Slab";
   background-color: #fff;
   background-size: 100%;
   background-position: center;
@@ -72,16 +93,14 @@ body {
   height: 320px;
   width: 320px;
   font-size: 16px;
-  font-weight: 700;
-  -webkit-box-sizing: border-box;
-  /*padding: 20px;*/
+  font-weight: 400;
+  border: 1px solid #999;
   color: #fff;
 }
 
 .item-box-title {
   display: table;
   position: absolute;
-  /*height: 230px;*/
   width: 320px;
   background-color: rgba(0,0,0,0.7);
 }
@@ -92,7 +111,6 @@ body {
 
 .item-box-title span {
   display: table-cell;
-  /*text-align: center;*/
   vertical-align: top;
   padding: 15px 20px;
   line-height: 22px;
@@ -108,26 +126,32 @@ body {
 }
 
 #logo {
-  font-family: 'Lato';
+  font-family: 'Roboto Slab';
   display: block;
   width: 100%;
-  height: 60px;
-  /*background-color: #FB8947;*/
+  height: 80px;
   background-color: #51D2B7;
   color: #fff;
   font-size: 32px;
   text-align: center;
-  line-height: 60px;
+  line-height: 74px;
 }
 
 .menu-wrap {
-  padding: 20px;
+  padding-bottom: 20px;
+}
+
+.menu-wrap .sidebar-header,
+.menu-wrap .menu-item {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .sidebar-header {
-  color: #444;
+  color: #7F8083;
   font-weight: bold;
-  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #414449;
 }
 
 .menu-icon,
@@ -141,19 +165,24 @@ body {
 
 .menu-item {
   color: #AAA;
-  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.menu-wrap a {
+  display: block;
+  text-decoration: none;
+  color: #AAA;
+  font-size: 16px;
 }
 
 .menu-item:hover {
-  color: #51D2B7;
-}
-
-.active {
-  color: #FFF;
+  background-color: #656C7E;
+  color: #fff;
 }
 
 #category .sidebar-header {
-  margin-left: 20px;
+  padding-left: 20px;
 }
 
 #category .item {
@@ -203,11 +232,11 @@ body {
   display: table;
   position: fixed;
   bottom: 0;
+  min-width: 1000px;
   width: 100%;
   height: 80px;
   background: rgba(0, 0, 0, .80);
   padding: 20px 20px;
-  /*padding-left: 230px;*/
   text-align: left;
   font-size: 12px;
   font-weight: 400;
@@ -215,10 +244,16 @@ body {
   -webkit-box-sizing: border-box;
 }
 
-.bb {
+.bb,
+.bb-label{
   display: inline-block;
   padding: 12px;
   margin: 0px 5px;
+}
+
+.bb:hover {
+  background-color: #656C7E;
+  border-radius: 20px;
 }
 
 #bottom-bar .active {
@@ -228,8 +263,7 @@ body {
 
 #bottom-bar .box-left {
   display: table-cell;
-  /*padding-right: 290px;*/
-  width: 33%;
+  width: 42%;
 }
 
 #bottom-bar .box-middle {
@@ -237,7 +271,7 @@ body {
   text-align: center;
   vertical-align: middle;
   font-size: 24px;
-  width: 33%;
+  width: 16%;
 }
 
 #bottom-bar .box-middle i {
@@ -251,7 +285,7 @@ body {
 }
 
 #bottom-bar .box-middle i {
-  background-color: #666;
+  background-color: #656C7E;
   width: 25px;
   padding: 8px;
   margin: 0px 5px;
@@ -266,28 +300,9 @@ body {
 
 #bottom-bar .box-right {
   display: table-cell;
-  width: 33%;
+  width: 42%;
   text-align: right;
 }
-
-/*.float-wrapper {
-  display: table;
-  z-index: 1;
-}*/
-
-/*.float-wrapper div {
-  display: table-cell; 
-  border: 5px solid #999;
-  width: 80%;
-  max-width: 960px;
-  min-height: 300px; 
-  background-color: #fff;
-  border-radius: 20px;
-  padding: 50px;
-
-  position: absolute;
-  vertical-align: middle;
-}*/
 
 .black_overlay{
   display: none;
@@ -296,11 +311,11 @@ body {
   left: 0%;
   width: 100%;
   height: 100%;
-  background-color: black;
+  background-color: white;
   z-index:1001;
-  -moz-opacity: 0.8;
-  opacity:.80;
-  filter: alpha(opacity=80);
+  -moz-opacity: 0.3;
+  opacity:.30;
+  filter: alpha(opacity=30);
 }
 
 .popup {
@@ -308,15 +323,40 @@ body {
   position: absolute;
   top: 10%;
   left: 25%;
+  min-width: 600px;
   width: 50%;
   min-height: 50%;
-  padding: 16px;
-  border: 10px solid #666;
-  border-radius: 20px;
+  border: 1px solid #666;
+  border-radius: 0px;
   background-color: white;
-
+  box-shadow: 0px 0px 40px #111;
+  -webkit-box-sizing: border-box;
   z-index:1002;
   overflow: auto;
+}
+
+.popup-header {
+  display: table;
+  width: 100%;
+  height: 50px;
+  margin: 26px 0px;
+}
+
+.popup-header-left {
+  display: table-cell;
+  width: 50%;
+  vertical-align: middle;
+}
+
+.popup-header-left h1 {
+  margin: 0 0 0 30px;
+}
+
+.popup-header-right {
+  display: table-cell;
+  width: 50%;
+  text-align: right;
+  vertical-align: middle;
 }
 
 .my-settings {
@@ -324,5 +364,133 @@ body {
   bottom: 12%;
 }
 
+#my-feeds table {
+  width: 94%;
+  margin-left: 25px;
+  margin-right: 25px;
+  -webkit-box-sizing: border-box;
+}
 
+#my-feeds table tr{
+  height: 50px;
+  background-color: red;
+}
 
+.popup-header-right .button {
+  background-color: #E6614F;
+  color: #fff;
+  border-radius: 3px;
+  display: inline-block;
+  padding: 12px 20px;
+  margin-right: 30px;
+}
+
+.add-feed-options {
+  display: table;
+  width: 100%;
+}
+
+.option-box {
+  display: table-cell;
+  text-align: center;
+  width: 30%;
+  margin: 5px;
+}
+
+.search-bar {
+  width: 90%;
+  display: block;
+  height: 60px;
+  background-color: red;
+  margin: 35px auto ;
+  vertical-align: middle;
+  line-height: 60px;
+  padding-left: 25px;
+  font-size: 24px;
+}
+
+.search-bar i {
+  padding-right: 25px;
+}
+
+.search-bar form {
+  display: inline-block;
+}
+
+.search-bar input {
+  border: none;
+  background-color: transparent;
+}
+
+/* LOGIN PAGES */
+
+.login-wrapper {
+  max-width: 330px;
+  margin: 100px auto 0;
+  background: #fff;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  box-shadow: 0px 0px 40px #aaa;
+}
+
+.login-heading {
+  margin: 0;
+  padding: 20px 15px;
+  text-align: center;
+  background: #41cac0;
+  border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  color: #fff;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+}
+
+.form-login-wrapper {
+  padding: 20px;
+}
+
+input[type="email"],
+input[type="password"] {
+  margin-bottom: 15px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid #eaeaea;
+  box-shadow: none;
+  font-size: 12px;
+  padding: 10px;
+  height: auto;
+  box-sizing: border-box;
+  width: 100%;
+}
+.button-sign-in:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
+} 
+
+.button-sign-in {
+  background: #f67a6e;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin-bottom: 20px;
+  display: block;
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+  padding: 10px 16px;
+  font-family: "Lato";
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 6px;
+  border: none;
+}
+
+.remember-me {
+  margin-bottom: 14px;
+  color: #b6b6b6;
+  font-weight: 300;
+  font-size: 14px;
+}
