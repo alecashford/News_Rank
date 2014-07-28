@@ -8,7 +8,7 @@ def update_feed
   helper = FeedlyHelper.new(self.feedly_feed_id)
   updated = helper.last_update
   if (Time.now.to_i * 1000) > (updated + 900000)
-    helper.dump
+    helper.add_to_db
   end
 end
 

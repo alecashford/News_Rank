@@ -44,25 +44,13 @@ class FeedlyHelper
   end
 
   # This will dump the feed content into the databases
-  def dump
+  def add_to_db
     if self.stream
       feed = Feed.find_by feedly_feed_id: @feed_id
+      debugger
       self.stream["items"].each do |item|
-        a = Article.new
-        a.title = item["title"]
-        a.feed_id = feed.id
-        a.feedly_id = item["origin"]["streamId"] # feedly feed/stream ID
-        a.published = item["published"]
-        a.author = item["author"]
-        a.canonical_url = item["alternate"][0]["href"] # permalink
-        a.summary = item["summary"]["content"] # this is HTML
-        a.site_url = item["origin"]["htmlUrl"]
-        if item["visual"]
-          a.visual_url = item["visual"]["url"]
-          a.visual_height = item["visual"]["height"]
-          a.visual_width = item["visual"]["width"]
-        end
-        a.save
+        article = Article.new
+        article.add_article(item, feed)
       end
       true
     end
