@@ -3,6 +3,7 @@ body {
   padding: 0;
   font-family: 'Lato', sans-serif;
   background-image: url('images/bg4.png');
+  /*min-width: 1280px;*/
 }
 
 .sidebar {
@@ -69,6 +70,7 @@ body {
   overflow: hidden;
   right: 0;
   color: #000;
+  min-width: 1000px;
 }
 
 .item-box {
@@ -220,6 +222,7 @@ body {
   display: table;
   position: fixed;
   bottom: 0;
+  min-width: 1000px;
   width: 100%;
   height: 80px;
   background: rgba(0, 0, 0, .80);
@@ -250,7 +253,7 @@ body {
 
 #bottom-bar .box-left {
   display: table-cell;
-  width: 33%;
+  width: 42%;
 }
 
 #bottom-bar .box-middle {
@@ -258,7 +261,7 @@ body {
   text-align: center;
   vertical-align: middle;
   font-size: 24px;
-  width: 33%;
+  width: 16%;
 }
 
 #bottom-bar .box-middle i {
@@ -287,7 +290,7 @@ body {
 
 #bottom-bar .box-right {
   display: table-cell;
-  width: 33%;
+  width: 42%;
   text-align: right;
 }
 
@@ -310,6 +313,7 @@ body {
   position: absolute;
   top: 10%;
   left: 25%;
+  min-width: 600px;
   width: 50%;
   min-height: 50%;
   border: 1px solid #666;
@@ -331,7 +335,7 @@ body {
 .popup-header-left {
   display: table-cell;
   width: 50%;
-
+  vertical-align: middle;
 }
 
 .popup-header-left h1 {
@@ -342,6 +346,7 @@ body {
   display: table-cell;
   width: 50%;
   text-align: right;
+  vertical-align: middle;
 }
 
 .my-settings {
@@ -350,7 +355,15 @@ body {
 }
 
 #my-feeds table {
-  width: 100%;
+  width: 94%;
+  margin-left: 25px;
+  margin-right: 25px;
+  -webkit-box-sizing: border-box;
+}
+
+#my-feeds table tr{
+  height: 50px;
+  background-color: red;
 }
 
 .popup-header-right .button {
@@ -362,4 +375,39 @@ body {
   margin-right: 30px;
 }
 
+.add-feed-options {
+  display: table;
+  width: 100%;
+}
 
+.option-box {
+  display: table-cell;
+  text-align: center;
+  width: 30%;
+  margin: 5px;
+}
+
+.search-bar {
+  width: 90%;
+  display: block;
+  height: 60px;
+  background-color: red;
+  margin: 35px auto ;
+  vertical-align: middle;
+  line-height: 60px;
+  padding-left: 25px;
+  font-size: 24px;
+}
+
+.search-bar i {
+  padding-right: 25px;
+}
+
+.search-bar form {
+  display: inline-block;
+}
+
+.search-bar input {
+  border: none;
+  background-color: transparent;
+}
