@@ -40,7 +40,7 @@ user.feeds << feed2
   fb_share_count: 27,
   fb_like_count: 911,
   fb_comment_count: 666,
-  twitter_count: 45,
+  twitter_count: (rand(100) + 1),
   reddit_score: 23,
   reddit_comment_count: 34,
   calculated_rank: 2
