@@ -7,25 +7,36 @@ feed = Feed.create(
   topics: "sex, drugs, rocknroll"
 )
 
+feed2 = Feed.create(
+name: "VisualNews",
+  url: "http://www.visualnews.com/",
+  feedly_feed_id: "feed/http://feeds.feedburner.com/thevisualnews",
+  num_subscribers: 427,
+  description: "lorum impsum",
+  topics: "art, design, people"
+  )
+
 user = User.create(
   email: "ruhroh@gmail.com",
   password: "12345678")
 
 user.feeds << feed
+user.feeds << feed2
 
-article = Article.create(
-  canonical_url: "http://google.com/thisarticle",
+50.times do
+  Article.create(
+  canonical_url: Faker::Internet.url,
   site_url: "http://google.com",
   visual_url: "http://www.mostbeautifulthings.net/wp-content/uploads/2014/04/sweet-cats-15.jpg",
   visual_height: 1366,
   visual_width: 750,
-  author: "Lady Gaga",
-  title: "Lady goes GaGa",
+  author: Faker::Name.name,
+  title: Faker::Lorem.sentence,
   keywords: "cats, gaga, xxx",
-  summary: "<p>lore ummmmm ipsummmmmmmmmmmm</p>",
+  summary: Faker::Lorem.sentence,
   feed_id: feed.id,
   feedly_id: "feedlyid",
-  published: 22222222222222,
+  published: rand(1..100),
   fb_share_count: 27,
   fb_like_count: 911,
   fb_comment_count: 666,
@@ -34,19 +45,22 @@ article = Article.create(
   reddit_comment_count: 34,
   calculated_rank: 2
   )
+end
 
-article2 = Article.create(
-  canonical_url: "http://google.com/thisarticle",
+50.times do
+Article.create(
+  canonical_url: Faker::Internet.url,
   site_url: "http://google.com",
   visual_url: "https://blog.compete.com/wp-content/uploads/2013/04/cats-1.jpg",
   visual_height: 1366,
   visual_width: 750,
-  author: "Lady Gaga",
-  title: "Lady goes GaGa",
+  author: Faker::Name.name,
+  title: Faker::Lorem.sentence,
   keywords: "cats, gaga, xxx",
-  summary: "<p>lore ummmmm ipsummmmmmmmmmmm</p>",
-  feedly_id: feed.id,
-  published: 07/07/07,
+  summary: Faker::Lorem.sentence,
+  feed_id: feed2.id,
+  feedly_id: "feedlyid",
+  published: rand(1..100),
   fb_share_count: 27,
   fb_like_count: 911,
   fb_comment_count: 666,
@@ -55,5 +69,6 @@ article2 = Article.create(
   reddit_comment_count: 34,
   calculated_rank: 2
   )
+end
 
 
