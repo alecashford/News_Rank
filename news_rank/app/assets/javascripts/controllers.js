@@ -32,7 +32,9 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
     }
 
 
-
+    $scope.addFeedFromUrl = function() {
+        $http.post('/feeds/from_url', { url: $scope.newFeedUrl })
+    }
 
     // $scope.catTiles = [{title: "Sample Title", source: "Sample", linkUrl: "http://thecatapi.com/", imageUrl: "http://25.media.tumblr.com/tumblr_m4ik28q4Rj1r6jd7fo1_1280.jpg", timePublished: "1", newsRank: "1", summary: "xyz"},
     //                    {title: "Sample Title", source: "Sample", linkUrl: "http://thecatapi.com/", imageUrl: "http://25.media.tumblr.com/tumblr_m0rcgtpwlN1qbd47zo1_1280.jpg", timePublished: "1", newsRank: "1", summary: "xyz"},

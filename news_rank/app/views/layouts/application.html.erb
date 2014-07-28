@@ -5,16 +5,10 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
-<!-- <% if user_signed_in? %> -->
-  <!-- Logged in as <strong><%= current_user.email %></strong>. -->
-  <!-- <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> | -->
-  <!-- <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %> -->
-<!-- <% else %> -->
-  <!-- <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> | -->
-  <!-- <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %> -->
-<!-- <% end %><hr> -->
 
 <%= yield %>
 

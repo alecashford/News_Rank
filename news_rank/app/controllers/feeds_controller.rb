@@ -29,8 +29,8 @@ class FeedsController < ApplicationController
     end
   end
 
-  def from_url(feed_url)
-    finder = FeedlyFinder.new(feed_url)
+  def from_url
+    finder = FeedlyFinder.new(params[:url])
     result = finder.find
     feed = Feed.new
       feed.url = result["results"][0]["website"]
@@ -51,7 +51,7 @@ class FeedsController < ApplicationController
   end
 
   def associate_user(feed)
-    user = User.find(1)
+    user = current_user
     user.feeds << feed
   end
 
