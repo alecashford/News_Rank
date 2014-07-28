@@ -6,6 +6,7 @@ module GetScores
       @fb_response = HTTParty.get("http://api.facebook.com/restserver.php?method=links.getStats&format=json&urls=#{@urls}")
       @scores = {}
       loop_through_scores
+
     end
     def total
       @likes + @comments + @shares
