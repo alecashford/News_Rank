@@ -1,35 +1,37 @@
 <div class="sidebar">
-	<div id="logo">NewsRank</div>
-  <div class="menu-wrap">
-    <div class="search">Search</div>
-    <div class="sidebar-header">MENU</div>
-    <div class="menu-item active">
-      <div class="menu-icon"><i class="fa fa-camera"></i></div>
-      <div class="menu-text"><a href = "javascript:void(0)" onclick = "document.getElementById('my-feeds').style.display='block';document.getElementById('fade').style.display='block'">Manage Feeds</a></div>
+    <div id="logo">NewsRank</div>
+    <div class="menu-wrap">
+      <div class="search-wrapper">
+        <div class="search" onclick = "$('#fade').fadeIn('slow', function() { $('#fade').css('display','block')});$('#search-feeds').fadeIn('fast', function() { $('#search-feeds').css('display','block')});"><i class="fa fa-search"></i>Search</div>
+      </div>
+      <div class="sidebar-header">MENU</div>
+      <a href = "javascript:void(0)" onclick = "$('#fade').fadeIn('slow', function() { $('#fade').css('display','block')});$('#my-feeds').fadeIn('fast', function() { $('#my-feeds').css('display','block')});" class="menu-item">
+        <div class="menu-icon"><i class="fa fa-camera"></i></div>
+        <div class="menu-text">Manage Feeds</div>
+      </a>
+      <a href="#" class="menu-item">
+        <div class="menu-icon"><i class="fa fa-camera"></i></div>
+        <div class="menu-text">Welcome (temp)</div>
+      </a>
+      <a href="javascript:void(0)" onclick = "$('#fade').fadeIn('slow', function() { $('#fade').css('display','block')});$('#add-feeds').fadeIn('fast', function() { $('#add-feeds').css('display','block')});" class="menu-item">
+        <div class="menu-icon"><i class="fa fa-camera"></i></div>
+        <div class="menu-text">Add Feeds (temp)</div>
+      </a>
+      <a href="#" class="menu-item">
+        <div class="menu-icon"><i class="fa fa-camera"></i></div>
+        <div class="menu-text">Sign Out (temp)</div>
+      </a>
     </div>
-    <div class="menu-item">
-      <div class="menu-icon"><i class="fa fa-camera"></i></div>
-      <div class="menu-text">Menu Item 2</div>
-    </div>
-    <div class="menu-item">
-      <div class="menu-icon"><i class="fa fa-camera"></i></div>
-      <div class="menu-text">Menu Item 3</div>
-    </div>
-    <div class="menu-item">
-      <div class="menu-icon"><i class="fa fa-camera"></i></div>
-      <div class="menu-text">Menu Item 4</div>
+    <div id="category">
+      <div class="sidebar-header">RECOMMENDED</div>
+      <div class="item technology">Technology</div>
+      <div class="item business">Business</div>
+      <div class="item design">Design</div>
+      <div class="item startups">Startups</div>
+      <div class="item fashion">Fashion</div>
+      <div class="item gaming">Gaming</div>
     </div>
   </div>
-  <div id="category">
-    <div class="sidebar-header">CATEGORIES</div>
-    <div class="item technology">Technology</div>
-    <div class="item business">Business</div>
-    <div class="item design">Design</div>
-    <div class="item startups">Startups</div>
-    <div class="item fashion">Fashion</div>
-    <div class="item gaming">Gaming</div>
-  </div>
-</div>
 
 <div class="article-list" infinite-scroll="loadMoreTiles()">
   <ul class="scrollable">
@@ -48,7 +50,7 @@
 
   <div id="bottom-bar">
     <div class="box-left">
-      <span class="bb">FILTER:</span>
+      <span class="bb-label">FILTER:</span>
       <span class="bb active">24 HOURS</span>
       <span class="bb">7 DAYS</span>
       <span class="bb">14 DAYS</span>
@@ -57,20 +59,93 @@
       <a href = "javascript:void(0)" onclick = "document.getElementById('my-settings').style.display='block';document.getElementById('fade').style.display='block'"><i class="fa fa-cog"></i></a>
     </div>
     <div class="box-right">
-      <span class="bb">SORT BY:</span>
+      <span class="bb-label">SORT BY:</span>
       <span class="bb active">TIME PUBLISHED</span>
       <span class="bb">NEWS RANK</span>
     </div>
   </div>
 
   <div id="my-feeds" class="popup">
-    <h1>My Feeds</h1>  
-    <a href = "javascript:void(0)" onclick = "document.getElementById('my-feeds').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
+    <div class="popup-header">
+      <div class="popup-header-left"><h1>Manage Feeds</h1></div>
+      <div class="popup-header-right">
+        <span class="button">Add Subscription</span>
+      </div>
+    </div>
+    <table>
+      <tr>
+        <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+        <td>The Verge</td>
+        <td>Your source for tech news and gadgets</td>
+        <td>Gadgets, Technology, Startups</td>
+      </tr>
+      <tr>
+        <td><a href="#">Uns</a></td>
+        <td>Engadget</td>
+        <td>Your source for tech news and gadgets</td>
+        <td>Gadgets, Technology, Startups</td>
+      </tr>
+    </table>
   </div>
 
-  <div id="my-settings" class="popup my-settings">  
+  <div id="my-settings" class="popup">  
     <h1>My Settings</h1>
     <a href = "javascript:void(0)" onclick = "document.getElementById('my-settings').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
   </div>
 
-  <div id="fade" class="black_overlay"></div>
+  <div id="add-feeds" class="popup">  
+    <div class="popup-header">
+      <h1>Add Feed</h1>
+      <p>Work In Progress. Styling Pending</p>
+      <div class="add-feed-options">
+        <div class="option-box">
+          <form>
+            <h3>By Feed URL</h3>
+            <input type="text" name="feed_URL"></br>
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+        <div class="option-box">
+          <form>
+            <h3>Upload OPML</h3>
+            <input type="file"></br>
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+        <div class="option-box">
+          <h3>Search</h3>
+          <a href="#">Link to Search feeds</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="search-feeds" class="popup">
+    <div class="search-bar">
+      <i class="fa fa-search"></i>
+      <form><input type="text" name="query" placeholder="Enter Your Search"></form>
+    </div>
+    <form>
+      <table>
+        <tr>
+          <td><input type="checkbox" name="FeedIDSelected" value="FeedID"></td>
+          <td><a href="#">The Verge</a></td>
+          <td>1234 Subscribers</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" name="FeedIDSelected" value="FeedID"></td>
+          <td><a href="#">The Verge</a></td>
+          <td>1234 Subscribers</td>
+        </tr>
+      </table>
+      <input type="submit">
+    </form>
+    <div class="suggestions">
+      <p>You may also like</p>
+      <a href="#">First</a>
+      <a href="#">Second</a>
+      <a href="#">Third</a>
+    </div>
+  </div>
+
+  <div id="fade" class="black_overlay" onclick="$('#fade').fadeOut('slow', function() { $('#fade').css('display','none')});$('.popup').fadeOut('slow', function() { $('.popup').css('display','none')})"></div>
