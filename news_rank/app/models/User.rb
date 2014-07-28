@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
     self.feeds.each do |feed|
       articles << feed.articles
     end
+    p "hey"
+    p articles.to_json
     articles.to_json
   end
 end

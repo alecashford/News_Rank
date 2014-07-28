@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 
   def get_all_articles
-    current_user.articles
+    render json: current_user.articles
   end
 end
 
