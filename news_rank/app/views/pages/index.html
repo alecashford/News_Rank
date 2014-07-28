@@ -36,11 +36,11 @@
 <div class="article-list" infinite-scroll="loadMoreTiles()">
   <ul class="scrollable">
     <li ng-repeat="tile in activeTiles">
-      <a ng-href="{{tile.canonical_url}}" class="item-box" back-img="{{tile.visual_url}}">
+      <a ng-href="{{tile.canonical_url}}" target="_blank" class="item-box" back-img="{{tile.visual_url}}">
         <div class="item-box-title">
           <span>
             <div class="title-text">{{tile.title}}</div>
-            <div class="source-text">{{tile.site_url}}</div>
+            <div class="source-text">{{tile.name}}</div>
           </span>
         </div>
       </a>
