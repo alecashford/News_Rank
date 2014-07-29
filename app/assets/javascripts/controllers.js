@@ -50,7 +50,7 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
     }
 
     $scope.addFeedFromUrl = function() {
-        $http.post('/feeds/from_url', { url: $scope.newFeedUrl })
+        $http.post('/feeds/create', { url: $scope.newFeedUrl })
     }
 
     $scope.loadMoreTiles = function() {
@@ -81,6 +81,29 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
         initializePage("calculated_rank")
         $(".box-right").find(".bb").removeClass("active")
         $(".box-right").find(".bb").eq(1).addClass("active")
+    }
+
+    $scope.checkedBoxes = []
+
+    $scope.log = function(){
+        console.log($scope.checkedBoxes)
+    }
+
+    $scope.toggleResults = function(url){
+        var found = $.inArray(url, $scope.checkedBoxes) > -1;
+        if (found) {
+            index = $scope.checkedBoxes.indexOf(url)
+            $scope.checkedBoxes.splice(index, 1)
+        }
+        else{
+            $scope.checkedBoxes.push(url)
+        }
+    }
+
+    $scope.addFromSearch = function(){
+        for (i = 0; i < $scope.checkedBoxes.length; i++){
+            $http.post('/feeds/create', {url: $scope.checkedBoxes[i]})
+        }
     }
 
 }]);
