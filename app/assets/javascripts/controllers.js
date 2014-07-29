@@ -100,4 +100,10 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
         }
     }
 
+    $scope.addFromSearch = function(){
+        for (i = 0; i < $scope.checkedBoxes.length; i++){
+            $http.post('/feeds/create', {url: $scope.checkedBoxes[i]})
+        }
+    }
+
 }]);
