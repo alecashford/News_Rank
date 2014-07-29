@@ -36,14 +36,13 @@ user.feeds << feed2
   summary: Faker::Lorem.sentence,
   feed_id: feed.id,
   feedly_id: "feedlyid",
-  published: rand(1..100),
-  fb_share_count: 27,
-  fb_like_count: 911,
-  fb_comment_count: 666,
-  twitter_count: 45,
-  reddit_score: 23,
-  reddit_comment_count: 34,
-  calculated_rank: 2
+  published: 1406548800,
+  fb_share_count: rand(2000),
+  fb_like_count: rand(2000),
+  fb_comment_count: rand(1000),
+  twitter_count: rand(2000),
+  reddit_score: rand(3000),
+  reddit_comment_count: rand(50)
   )
 end
 
@@ -60,13 +59,12 @@ Article.create(
   summary: Faker::Lorem.sentence,
   feed_id: feed2.id,
   feedly_id: "feedlyid",
-  published: rand(1..100),
+  published: 1406534400,
   fb_share_count: rand(2000),
   fb_like_count: rand(2000),
   fb_comment_count: rand(1000),
   twitter_count: rand(2000),
   reddit_score: rand(3000),
-  reddit_comment_count: 34,
-  calculated_rank: 2
+  reddit_comment_count: rand(100)
   )
 end
