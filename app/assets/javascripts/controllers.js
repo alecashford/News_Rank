@@ -1,6 +1,5 @@
 app.controller('MainController', ["$scope", "$http", function($scope, $http) {
 
-
     $scope.activeTiles = []
 
     $scope.tiles = []
@@ -23,6 +22,7 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
     getArticles()
 
     var initializePage = function(sortBy) {
+        $scope.activeTiles = []
         sortFeed($scope.tiles, sortBy)
         if ($scope.tiles.length < 30) {
             var minimumCount = $scope.tiles.length
@@ -53,10 +53,6 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
         $http.post('/feeds/from_url', { url: $scope.newFeedUrl })
     }
 
-    // $scope.addFeedFromOpml = function() {
-    //     // $http.post('/feeds/from_url', { url: $scope.newFeedUrl })
-    // }
-
     $scope.loadMoreTiles = function() {
         var lastTile = $scope.activeTiles.length
         for (i = 0; i < 9; i++) {
@@ -65,8 +61,6 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
             }
         }
     }
-
-
 
     $scope.searchResults = []
 
@@ -77,21 +71,12 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
         })
     }
 
-
     $scope.sortTimePublished = function(){
-        $scope.activeTiles = []
         initializePage("published")
-        console.log("time published sort")
     }
 
     $scope.sortNewsRank= function(){
-        $scope.activeTiles = []
         initializePage("calculated_rank")
-        console.log("newsrank sort")
     }
-
-
-
-
 
 }]);
