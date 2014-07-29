@@ -78,46 +78,17 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
     }
 
 
-
-
-    $scope.filterTwentyFourHours = function(){
-
-
-    }
-
-    $scope.filterSevenDays = function(){
-
-
-    }
-
-    $scope.filterFourteenDays = function(){
-
-
-    }
-
     $scope.sortTimePublished = function(){
-
-
+        $scope.activeTiles = []
+        initializePage("published")
+        console.log("time published sort")
     }
 
     $scope.sortNewsRank= function(){
-
-
+        $scope.activeTiles = []
+        initializePage("calculated_rank")
+        console.log("newsrank sort")
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
