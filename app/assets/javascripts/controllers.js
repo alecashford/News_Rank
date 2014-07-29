@@ -19,9 +19,9 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
             initializePage("published")
         })
     }
-    
+
     getArticles()
-    
+
     var initializePage = function(sortBy) {
         sortFeed($scope.tiles, sortBy)
         if ($scope.tiles.length < 30) {
@@ -80,6 +80,30 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
 
 
 
+    $scope.filterTwentyFourHours = function(){
+
+
+    }
+
+    $scope.filterSevenDays = function(){
+
+
+    }
+
+    $scope.filterFourteenDays = function(){
+
+
+    }
+
+    $scope.sortTimePublished = function(){
+
+
+    }
+
+    $scope.sortNewsRank= function(){
+
+
+    }
 
 
 

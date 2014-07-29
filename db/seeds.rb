@@ -36,7 +36,7 @@ user.feeds << feed2
   summary: Faker::Lorem.sentence,
   feed_id: feed.id,
   feedly_id: "feedlyid",
-  published: rand(1..100),
+  published: rand(1405399357..1406652157),
   fb_share_count: 27,
   fb_like_count: 911,
   fb_comment_count: 666,
