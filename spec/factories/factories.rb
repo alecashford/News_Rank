@@ -5,7 +5,7 @@ FactoryGirl.define do
 
     factory :user_with_feeds do
       after(:create) do |user|
-        create_list(:feed, 15, user: user)
+        create_list(:feeds, 15, user: user)
       end
     end
   end
@@ -18,13 +18,13 @@ FactoryGirl.define do
 
     factory :feed_with_users do
       after(:create) do |feed|
-        create_list(:user, 5, feed: feed)
+        create_list(:user, 5, feeds: feed)
       end
     end
 
     factory :feed_with_articles do
       after(:create) do |feed|
-        create_list(:article, 20, feed: feed)
+        create_list(:article, 20, feeds: feed)
       end
     end
   end

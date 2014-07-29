@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  def get_all_articles
+  def index
     render json: current_user.articles
   end
 end
