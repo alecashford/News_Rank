@@ -1,3 +1,6 @@
+require 'open-uri'
+require 'awesome_print'
+
 class FeedsController < ApplicationController
 
   def index
@@ -51,4 +54,13 @@ class FeedsController < ApplicationController
 
 
 
+  def search
+    search = FeedlyFinder.new(URI::encode(params[:url]))
+    result = search.find
+    to_return = []
+    result["results"].each do |item|
+      to_return << {title: item["title"], subscribers: item["subscribers"], feedId: item["feedId"], url: item["website"]}
+    end
+    render :json => to_return
+  end
 end
