@@ -73,10 +73,14 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
 
     $scope.sortTimePublished = function(){
         initializePage("published")
+        $(".box-right").find(".bb").removeClass("active")
+        $(".box-right").find(".bb").eq(0).addClass("active")
     }
 
     $scope.sortNewsRank= function(){
         initializePage("calculated_rank")
+        $(".box-right").find(".bb").removeClass("active")
+        $(".box-right").find(".bb").eq(1).addClass("active")
     }
 
 }]);
