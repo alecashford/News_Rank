@@ -36,11 +36,11 @@
 <div class="article-list" infinite-scroll="loadMoreTiles()">
   <ul class="scrollable">
     <li ng-repeat="tile in activeTiles">
-      <a ng-href="{{tile.canonical_url}}" target="_blank" class="item-box" back-img="{{tile.visual_url}}">
+      <a ng-href="{{tile.canonical_url}}" class="item-box" back-img="{{tile.visual_url}}">
         <div class="item-box-title">
           <span>
             <div class="title-text">{{tile.title}}</div>
-            <div class="source-text">{{tile.name}}</div>
+            <div class="source-text">{{tile.site_url}}</div>
           </span>
         </div>
       </a>
@@ -67,26 +67,22 @@
 
   <div id="my-feeds" class="popup">
     <h2 class="popup-heading">Manage Feeds</h2>
-    <!-- <div class="popup-header">
-      <div class="popup-header-left"><h1>Manage Feeds</h1></div>
-      <div class="popup-header-right">
-        <span class="button">Add Subscription</span>
-      </div>
-    </div> -->
-    <table>
-      <tr>
-        <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
-        <td>The Verge</td>
-        <td>Your source for tech news and gadgets</td>
-        <td>Gadgets, Technology, Startups</td>
-      </tr>
-      <tr>
-        <td><a href="#">Uns</a></td>
-        <td>Engadget</td>
-        <td>Your source for tech news and gadgets</td>
-        <td>Gadgets, Technology, Startups</td>
-      </tr>
-    </table>
+    <div class="popup-content-wrapper">
+      <table>
+        <tr>
+          <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+          <td>The Verge</td>
+          <td>Your source for tech news and gadgets</td>
+          <td>Gadgets, Technology, Startups</td>
+        </tr>
+        <tr>
+          <td><a href="#">Uns</a></td>
+          <td>Engadget</td>
+          <td>Your source for tech news and gadgets</td>
+          <td>Gadgets, Technology, Startups</td>
+        </tr>
+      </table>
+    </div>
   </div>
 
   <div id="my-settings" class="popup">  
@@ -102,60 +98,59 @@
   </div>
 
   <div id="add-feeds" class="popup">  
-    <!-- <div class="popup-header"> -->
-      <h2 class="popup-heading">Add Feeds</h2>
-      <div class="popup-content-wrapper">
-        <!-- <p>Work In Progress. Styling Pending</p> -->
-        <div class="add-feed-options">
-          <div class="option-box">
-            <form ng-submit="addFeedFromUrl()">
-              <h3>By Feed URL</h3>
-              <input type="text" name="feed_URL" ng-model="newFeedUrl"></br>
-              <input type="submit" value="Submit">
-            </form>
-          </div>
-          <div class="option-box">
-            <form>
-              <h3>Upload OPML</h3>
-              <input type="file"></br>
-              <input type="submit" value="Submit">
-            </form>
-          </div>
-          <div class="option-box">
-            <h3>Search</h3>
-            <a href="#">Link to Search feeds</a>
-          </div>
+    <h2 class="popup-heading">Add Feeds</h2>
+    <div class="popup-content-wrapper">
+      <div class="add-feed-options">
+        <div class="option-box">
+          <form ng-submit="addFeedFromUrl()">
+            <h3>By Feed URL</h3>
+            <input type="text" name="feed_URL" ng-model="newFeedUrl"></br>
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+        <div class="option-box">
+          <form>
+            <h3>Upload OPML</h3>
+            <input type="file"></br>
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+        <div class="option-box">
+          <h3>Search</h3>
+          <a href="#">Link to Search feeds</a>
         </div>
       </div>
-    <!-- </div> -->
+    </div>
   </div>
 
   <div id="search-feeds" class="popup">
     <h2 class="popup-heading">Search</h2>
-    <div class="search-bar">
-      <i class="fa fa-search"></i>
-      <form><input type="text" name="query" placeholder="Enter Your Search"></form>
-    </div>
-    <form>
-      <table>
-        <tr>
-          <td><input type="checkbox" name="FeedIDSelected" value="FeedID"></td>
-          <td><a href="#">The Verge</a></td>
-          <td>1234 Subscribers</td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" name="FeedIDSelected" value="FeedID"></td>
-          <td><a href="#">The Verge</a></td>
-          <td>1234 Subscribers</td>
-        </tr>
-      </table>
-      <input type="submit">
-    </form>
-    <div class="suggestions">
-      <p>You may also like</p>
-      <a href="#">First</a>
-      <a href="#">Second</a>
-      <a href="#">Third</a>
+    <div class="popup-content-wrapper">
+      <div class="search-bar-wrapper">
+        <i class="fa fa-search"></i>
+        <form><input id="search-bar" type="text" name="query" placeholder="Enter Your Search"></form>
+      </div>
+      <form>
+        <table>
+          <tr>
+            <td><input type="checkbox" name="FeedIDSelected" value="FeedID"></td>
+            <td><span class="search-results-title"><a href="#">The Verge</a></span></td>
+            <td><span class="search-results-subscribers">1234</span> Subscribers</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" name="FeedIDSelected" value="FeedID"></td>
+            <td><span class="search-results-title"><a href="#">The Verge</a></span></td>
+            <td><span class="search-results-subscribers">1234</span> Subscribers</td>
+          </tr>
+        </table>
+        <input type="submit">
+      </form>
+      <div class="suggestions">
+        <h2>You may also like</h2>
+        <div class="search-results-similar"><a href="#">First</a></div>
+        <div class="search-results-similar"><a href="#">Second</a></div>
+        <div class="search-results-similar"><a href="#">Third</a></div>
+      </div>
     </div>
   </div>
 

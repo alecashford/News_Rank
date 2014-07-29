@@ -30,6 +30,7 @@ a {
   padding: 5px 0px;
   margin-bottom: 20px;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .search {
@@ -374,7 +375,7 @@ a {
 
 #my-feeds table tr{
   height: 50px;
-  background-color: red;
+  /*background-color: red;*/
 }
 
 .popup-header-right .button {
@@ -398,29 +399,39 @@ a {
   margin: 5px;
 }
 
-.search-bar {
-  width: 90%;
+/* Search Page CSS */
+
+.search-bar-wrapper {
   display: block;
   height: 60px;
-  background-color: red;
-  margin: 35px auto ;
+  background-color: #eee;
+  border-radius: 30px;
+  margin-bottom: 20px;
   vertical-align: middle;
   line-height: 60px;
   padding-left: 25px;
   font-size: 24px;
 }
 
-.search-bar i {
-  padding-right: 25px;
+.search-bar-wrapper i {
+  padding-right: 15px;
 }
 
-.search-bar form {
+.search-bar-wrapper form {
   display: inline-block;
+  width: 90%;
 }
 
-.search-bar input {
+.search-bar-wrapper input {
   border: none;
   background-color: transparent;
+  font-size: 24px;
+  font-weight: 300;
+  width: 92%;
+}
+
+.search-bar-wrapper input:focus {
+  outline: none;
 }
 
 /* LOGIN PAGES */
