@@ -8,8 +8,8 @@ class FeedsController < ApplicationController
    end
 
   def create
-    # finder = FeedlyFinder.new(params[:url])
-    # result = finder.find
+    finder = FeedlyFinder.new(params[:url])
+    result = finder.find
     feed = Feed.find_by_feedly_feed_id(params[:feedId])
     if !feed
       feed = Feed.new
@@ -22,8 +22,8 @@ class FeedsController < ApplicationController
           feed.topics = result['results'][0]['deliciousTags'].join(',')
         end
       feed.save
-  end
-    associate_user(feed)
+    end
+    current_user.feeds << feed
     helper = FeedlyHelper.new(feed.feedly_feed_id)
     helper.add_to_db
     redirect_to '/'
