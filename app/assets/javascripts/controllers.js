@@ -50,7 +50,8 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
     }
 
     $scope.addFeedFromUrl = function() {
-        $http.post('/feeds/create', { url: $scope.newFeedUrl })
+        $http.post('/feeds/create',
+        { url: $scope.newFeedUrl })
     }
 
     $scope.loadMoreTiles = function() {
@@ -102,14 +103,31 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
 
     $scope.addFromSearch = function(){
         for (i = 0; i < $scope.checkedBoxes.length; i++){
-            $http.post('/feeds/create', {url: $scope.checkedBoxes[i]})
+            $http.post('/feeds/create',
+            {url: $scope.checkedBoxes[i]})
         }
     }
 
     $scope.calculateAge = function(published){
         age = new Date().getTime() - parseInt(published)
-        console.log(String(parseInt(age/60000))+"m")
         return String(parseInt(age/60000))+"m"
+    }
+
+    $scope.userFeeds = []
+
+    $scope.updateUserFeeds = function(){
+        $http({
+            method: 'GET',
+            url: '/feeds'
+        }).success(function(data) {
+            $scope.userFeeds = []
+            $scope.userFeeds = data
+        })
+    }
+
+    $scope.deleteFeed = function(feed_id){
+        $http.delete('/feeds/delete/'+feed_id)
+        $scope.updateUserFeeds()
     }
 
 }]);

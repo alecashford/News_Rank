@@ -7,7 +7,7 @@
       <div class="sidebar-header">MENU</div>
       <a href = "javascript:void(0)" onclick = "$('#fade').fadeIn('slow', function() { $('#fade').css('display','block')});$('#my-feeds').fadeIn('fast', function() { $('#my-feeds').css('display','block')});" class="menu-item">
         <div class="menu-icon"><i class="fa fa-camera"></i></div>
-        <div class="menu-text">Manage Feeds</div>
+        <div class="menu-text" ng-click="updateUserFeeds()">Manage Feeds</div>
       </a>
       <a href="#" class="menu-item">
         <div class="menu-icon"><i class="fa fa-camera"></i></div>
@@ -70,17 +70,11 @@
     <h2 class="popup-heading">Manage Feeds</h2>
     <div class="popup-content-wrapper">
       <table>
-        <tr>
-          <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
-          <td>The Verge</td>
-          <td>Your source for tech news and gadgets</td>
-          <td>Gadgets, Technology, Startups</td>
-        </tr>
-        <tr>
-          <td><a href="#">Uns</a></td>
-          <td>Engadget</td>
-          <td>Your source for tech news and gadgets</td>
-          <td>Gadgets, Technology, Startups</td>
+        <tr ng-repeat="feed in userFeeds">
+          <td><i class="fa fa-trash-o" ng-click="deleteFeed(feed.id)"></i></td>
+          <td>{{feed.name}}</td>
+          <td>{{feed.description}}</td>
+          <td>{{feed.topics}}</td>
         </tr>
       </table>
     </div>
