@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20140729201348) do
     t.string   "keywords"
     t.text     "summary"
     t.text     "feedly_id"
+    t.integer  "published"
     t.integer  "fb_share_count"
     t.integer  "fb_like_count"
     t.integer  "fb_comment_count"
@@ -36,7 +37,6 @@ ActiveRecord::Schema.define(version: 20140729201348) do
     t.integer  "reddit_comment_count"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "published"
     t.decimal  "calculated_rank"
   end
 

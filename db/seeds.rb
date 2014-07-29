@@ -1,3 +1,4 @@
+
 feed = Feed.create(
   name: "Engadget",
   url: "http://www.engadget.com",
@@ -65,6 +66,29 @@ Article.create(
   fb_comment_count: rand(1000),
   twitter_count: rand(2000),
   reddit_score: rand(3000),
+  reddit_comment_count: rand(100)
+  )
+end
+
+50.times do |i|
+Article.create(
+  canonical_url: Faker::Internet.url,
+  site_url: "http://google.com",
+  visual_url: "https://blog.compete.com/wp-content/uploads/2013/04/cats-1.jpg",
+  visual_height: 1366,
+  visual_width: 750,
+  author: Faker::Name.name,
+  title: Faker::Lorem.sentence,
+  keywords: "cats, gaga, xxx",
+  summary: Faker::Lorem.sentence,
+  feed_id: feed2.id,
+  feedly_id: "feedlyid",
+  published: 1406534400,
+  fb_share_count: i*100,
+  fb_like_count: i*100,
+  fb_comment_count: i*100,
+  twitter_count: i*100,
+  reddit_score: i*100,
   reddit_comment_count: rand(100)
   )
 end
