@@ -7,7 +7,7 @@ class FeedlyFinder
     begin
       HTTParty.get("http://cloud.feedly.com/v3/search/feeds?q=#{@search}")
     rescue
-      #something here if not successful
+      return nil
     end
   end
 

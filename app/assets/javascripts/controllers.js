@@ -1,6 +1,5 @@
 app.controller('MainController', ["$scope", "$http", function($scope, $http) {
 
-
     $scope.activeTiles = []
 
     $scope.tiles = []
@@ -19,10 +18,11 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
             initializePage("published")
         })
     }
-    
+
     getArticles()
-    
+
     var initializePage = function(sortBy) {
+        $scope.activeTiles = []
         sortFeed($scope.tiles, sortBy)
         if ($scope.tiles.length < 30) {
             var minimumCount = $scope.tiles.length
@@ -53,10 +53,6 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
         $http.post('/feeds/from_url', { url: $scope.newFeedUrl })
     }
 
-    // $scope.addFeedFromOpml = function() {
-    //     // $http.post('/feeds/from_url', { url: $scope.newFeedUrl })
-    // }
-
     $scope.loadMoreTiles = function() {
         var lastTile = $scope.activeTiles.length
         for (i = 0; i < 9; i++) {
@@ -66,38 +62,25 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
         }
     }
 
+    $scope.searchResults = []
+
     $scope.search = function() {
-        // var searchUrl = 'http://cloud.feedly.com/v3/search/feeds?q=' + $scope.searchTerm
-        // $http.jsonp(searchUrl)
-            //      $http({
-            //     method: 'GET',
-            //     dataType: "jsonp",
-            //     url: 'http://cloud.feedly.com/v3/search/feeds?q=' + $scope.searchTerm + "&jsonp=JSON_CALLBACK"
-            // })
-       $.get(
-        // method: 'get',
-        // dataType: 'jsonp',
-        'http://cloud.feedly.com/v3/search/feeds?q=' + $scope.searchTerm + "&jsonp=JSON_CALLBACK"
-       ).success( function(data) {
-                debugger
-            })
+        $http.post('/feeds/search', { url: $scope.searchTerm })
+        .success(function(data) {
+            $scope.searchResults = data
+        })
     }
 
+    $scope.sortTimePublished = function(){
+        initializePage("published")
+        $(".box-right").find(".bb").removeClass("active")
+        $(".box-right").find(".bb").eq(0).addClass("active")
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    $scope.sortNewsRank= function(){
+        initializePage("calculated_rank")
+        $(".box-right").find(".bb").removeClass("active")
+        $(".box-right").find(".bb").eq(1).addClass("active")
+    }
 
 }]);
