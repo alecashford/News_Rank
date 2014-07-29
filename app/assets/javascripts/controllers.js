@@ -66,4 +66,38 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
         }
     }
 
+    $scope.search = function() {
+        // var searchUrl = 'http://cloud.feedly.com/v3/search/feeds?q=' + $scope.searchTerm
+        // $http.jsonp(searchUrl)
+            //      $http({
+            //     method: 'GET',
+            //     dataType: "jsonp",
+            //     url: 'http://cloud.feedly.com/v3/search/feeds?q=' + $scope.searchTerm + "&jsonp=JSON_CALLBACK"
+            // })
+       $.get(
+        // method: 'get',
+        // dataType: 'jsonp',
+        'http://cloud.feedly.com/v3/search/feeds?q=' + $scope.searchTerm + "&jsonp=JSON_CALLBACK"
+       ).success( function(data) {
+                debugger
+            })
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }]);
