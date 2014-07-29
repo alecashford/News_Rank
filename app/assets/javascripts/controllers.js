@@ -66,9 +66,7 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
         }
     }
 
-    $scope.favorites = {
 
-    }
 
     $scope.searchResults = []
 
