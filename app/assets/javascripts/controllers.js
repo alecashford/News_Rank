@@ -66,13 +66,14 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
         }
     }
 
+
+
     $scope.searchResults = []
 
     $scope.search = function() {
         $http.post('/feeds/search', { url: $scope.searchTerm })
         .success(function(data) {
             $scope.searchResults = data
-            console.log($scope.searchResults)
         })
     }
 

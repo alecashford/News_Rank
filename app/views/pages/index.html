@@ -133,7 +133,7 @@
       <form>
         <table>
           <tr ng-repeat="result in searchResults">
-            <td><input type="checkbox" name="FeedIDSelected" value="{{result.feedId}}"></td>
+            <td><input type="checkbox" name="FeedIDSelected" ng-submit="" value="{{result.feedId}}"></td>
             <td><span class="search-results-title"><a ng-href="{{result.url}}">{{result.title}}</a></span></td>
             <td><span class="search-results-subscribers">{{result.subscribers}}</span> Subscribers</td>
           </tr>
