@@ -8,9 +8,9 @@ class FeedsController < ApplicationController
    end
 
   def create
-    finder = FeedlyFinder.new(params[:url])
-    result = finder.find
-    feed = Feed.find_by_feedly_feed_id(result['results'][0]['feedId'])
+    # finder = FeedlyFinder.new(params[:url])
+    # result = finder.find
+    feed = Feed.find_by_feedly_feed_id(params[:feedId])
     if !feed
       feed = Feed.new
         feed.url = result["results"][0]["website"]
