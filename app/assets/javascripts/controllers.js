@@ -36,10 +36,10 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
 
     var sortFeed = function(sortMe, sortBy) {
         var spaceship = function(a, b) {
-            if (a[sortBy] < b[sortBy]) {
+            if (a[sortBy] > b[sortBy]) {
                 return -1
             }
-            else if (a[sortBy] > b[sortBy]) {
+            else if (a[sortBy] < b[sortBy]) {
                 return 1
             }
             else {
@@ -104,6 +104,12 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
         for (i = 0; i < $scope.checkedBoxes.length; i++){
             $http.post('/feeds/create', {url: $scope.checkedBoxes[i]})
         }
+    }
+
+    $scope.calculateAge = function(published){
+        age = new Date().getTime() - parseInt(published)
+        console.log(String(parseInt(age/60000))+"m")
+        return String(parseInt(age/60000))+"m"
     }
 
 }]);
