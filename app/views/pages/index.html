@@ -14,7 +14,10 @@
         <div class="menu-icon"><i class="fa fa-camera"></i></div>
         <div class="menu-text">Add Feeds (temp)</div>
       </div>
-
+       <div id="link-manage-feeds" class="menu-item">
+        <div class="menu-icon"><i class="fa fa-pencil-square-o"></i></div>
+        <div class="menu-text" ng-click="updateUserFeeds()">Manage Feeds</div>
+      </div>
 <!--       <div id="link-full-article" class="menu-item">
         <div class="menu-icon"><i class="fa fa-camera"></i></div>
         <div class="menu-text">Full Article (temp)</div>
@@ -99,10 +102,9 @@
       <span class="bb">7 DAYS</span>
       <span class="bb">14 DAYS</span>
     </div>
-    <div class="box-middle" ng-click="updateUserFeeds()">
+    <div class="box-middle">
       <i class="fa fa-cog"></i>
     </div>
-
     <div class="box-right">
       <span class="bb-label">SORT BY:</span>
       <span class="bb active" ng-click="sortTimePublished()">TIME PUBLISHED</span>
