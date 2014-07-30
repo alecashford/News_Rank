@@ -568,7 +568,7 @@ input[type="password"] {
 input[type="email"]:focus,
 input[type="password"]:focus {
   outline: none;
-} 
+}
 
 .button-subscribe,
 .button-sign-in {

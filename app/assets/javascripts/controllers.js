@@ -70,6 +70,7 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
         .success(function(data) {
             $scope.searchResults = data
         })
+        $('.button-subscribe').css({"display": "block"})
     }
 
     $scope.sortTimePublished = function(){
@@ -90,14 +91,16 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
         console.log($scope.checkedBoxes)
     }
 
-    $scope.toggleResults = function(url){
-        var found = $.inArray(url, $scope.checkedBoxes) > -1;
+    $scope.toggleResults = function(result){
+        var found = $.inArray(result.feedId, $scope.checkedBoxes) > -1;
         if (found) {
-            index = $scope.checkedBoxes.indexOf(url)
+            index = $scope.checkedBoxes.indexOf(result.feedId)
             $scope.checkedBoxes.splice(index, 1)
+            result.selected=false
         }
         else{
-            $scope.checkedBoxes.push(url)
+            $scope.checkedBoxes.push(result.feedId)
+            result.selected = true
         }
     }
 
