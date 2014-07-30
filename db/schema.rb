@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20140729201348) do
     t.string   "keywords"
     t.text     "summary"
     t.text     "feedly_id"
-    t.integer  "published"
+    t.integer  "published",            limit: 8
     t.integer  "fb_share_count"
     t.integer  "fb_like_count"
     t.integer  "fb_comment_count"
