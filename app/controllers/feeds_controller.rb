@@ -5,7 +5,7 @@ class FeedsController < ApplicationController
 
   def index
     render json: current_user.feeds
-   end
+  end
 
   def create
     finder = FeedlyFinder.new(params[:url])
@@ -27,6 +27,11 @@ class FeedsController < ApplicationController
     helper = FeedlyHelper.new(feed.feedly_feed_id)
     helper.add_to_db
     redirect_to '/'
+  end
+
+  def destroy
+    feed=Feed.find(params[:id])
+    feed.destroy
   end
 
   #Currently this leaves the following fields blank:
@@ -63,4 +68,5 @@ class FeedsController < ApplicationController
     end
     render :json => to_return
   end
+
 end

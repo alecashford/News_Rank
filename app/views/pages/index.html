@@ -9,14 +9,15 @@
         <div class="menu-icon"><i class="fa fa-star"></i></div>
         <div class="menu-text">My Feeds</div>
       </div>
+
       <div id="link-add-feeds" class="menu-item">
         <div class="menu-icon"><i class="fa fa-camera"></i></div>
         <div class="menu-text">Add Feeds (temp)</div>
       </div>
-<!--       <div id="link-manage-feeds" class="menu-item">
+       <div id="link-manage-feeds" class="menu-item">
         <div class="menu-icon"><i class="fa fa-pencil-square-o"></i></div>
-        <div class="menu-text">Manage Feeds</div>
-      </div> -->
+        <div class="menu-text" ng-click="updateUserFeeds()">Manage Feeds</div>
+      </div>
 <!--       <div id="link-full-article" class="menu-item">
         <div class="menu-icon"><i class="fa fa-camera"></i></div>
         <div class="menu-text">Full Article (temp)</div>
@@ -115,17 +116,11 @@
     <h2 class="popup-heading">Manage Feeds</h2>
     <div class="popup-content-wrapper">
       <table>
-        <tr>
-          <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
-          <td>The Verge</td>
-          <td>Your source for tech news and gadgets</td>
-          <td>Gadgets, Technology, Startups</td>
-        </tr>
-        <tr>
-          <td><a href="#">Uns</a></td>
-          <td>Engadget</td>
-          <td>Your source for tech news and gadgets</td>
-          <td>Gadgets, Technology, Startups</td>
+        <tr ng-repeat="feed in userFeeds">
+          <td><i class="fa fa-trash-o" ng-click="deleteFeed(feed.id)"></i></td>
+          <td>{{feed.name}}</td>
+          <td>{{feed.description}}</td>
+          <td>{{feed.topics}}</td>
         </tr>
       </table>
     </div>
@@ -180,7 +175,7 @@
       </div>
       <form>
         <table class="feed-wrapper">
-          <tr ng-repeat="result in searchResults" ng-click="toggleResults(result.feedId)">
+          <tr ng-repeat="result in searchResults" ng-click="toggleResults(result)" ng-class="{ selected: result.selected }">
             <td><img src="http://pbs.twimg.com/profile_images/425948730/DF-Star-Logo_bigger.png"></td>
             <td><span class="search-results-title">{{result.title}}</span></td>
             <td><span class="search-results-subscribers">{{result.subscribers}}</span> Subscribers</td>
