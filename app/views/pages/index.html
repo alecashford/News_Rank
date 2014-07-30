@@ -2,29 +2,29 @@
     <div id="logo">NewsRank</div>
     <div class="menu-wrap">
       <div class="search-wrapper">
-        <div class="search"><i class="fa fa-search"></i>Search</div>
+        <div class="search"><i class="fa fa-search"></i>Search or Add Feeds</div>
       </div>
       <div class="sidebar-header">MENU</div>
       <div id="link-my-feeds" class="menu-item">
         <div class="menu-icon"><i class="fa fa-star"></i></div>
         <div class="menu-text">My Feeds</div>
       </div>
-      <div id="link-manage-feeds" class="menu-item">
-        <div class="menu-icon"><i class="fa fa-pencil-square-o"></i></div>
-        <div class="menu-text">Manage Feeds</div>
-      </div>
-      <div id="link-full-article" class="menu-item">
-        <div class="menu-icon"><i class="fa fa-camera"></i></div>
-        <div class="menu-text">Full Article (temp)</div>
-      </div>
       <div id="link-add-feeds" class="menu-item">
         <div class="menu-icon"><i class="fa fa-camera"></i></div>
         <div class="menu-text">Add Feeds (temp)</div>
       </div>
-      <div id="link-loader" class="menu-item">
+<!--       <div id="link-manage-feeds" class="menu-item">
+        <div class="menu-icon"><i class="fa fa-pencil-square-o"></i></div>
+        <div class="menu-text">Manage Feeds</div>
+      </div> -->
+<!--       <div id="link-full-article" class="menu-item">
+        <div class="menu-icon"><i class="fa fa-camera"></i></div>
+        <div class="menu-text">Full Article (temp)</div>
+      </div> -->
+<!--       <div id="link-loader" class="menu-item">
         <div class="menu-icon"><i class="fa fa-spinner"></i></div>
         <div class="menu-text">Loading (temp)</div>
-      </div>
+      </div> -->
       <%= link_to(destroy_user_session_path, method: :delete, class: 'menu-item') do %>
         <div class="menu-icon"><i class="fa fa-camera"></i></div>
         <div class="menu-text">Sign Out</div>
@@ -182,7 +182,7 @@
         <table class="feed-wrapper">
           <tr ng-repeat="result in searchResults" ng-click="toggleResults(result.feedId)">
             <td><img src="http://pbs.twimg.com/profile_images/425948730/DF-Star-Logo_bigger.png"></td>
-            <td><span class="search-results-title"><a ng-href="{{result.url}}">{{result.title}}</a></span></td>
+            <td><span class="search-results-title">{{result.title}}</span></td>
             <td><span class="search-results-subscribers">{{result.subscribers}}</span> Subscribers</td>
             <td><span class="search-results-articles">1234</span> Articles Weekly</td>
           </tr>
