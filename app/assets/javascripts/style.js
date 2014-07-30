@@ -45,6 +45,12 @@ $(document).ready(function() {
       $('#fade, .popup:visible').fadeOut('normal', function() { $('#fade, .popup:visible').css('display','none')});
     });
 
-  // 
+  // Bind Escape to Close Popups
+  $(document).keyup(function(e){
+    if(e.keyCode === 27) {
+      $('#fade, .popup:visible').fadeOut('normal', function() { $('#fade, .popup:visible').css('display','none')});
+    }
+  });
+
 
 });
