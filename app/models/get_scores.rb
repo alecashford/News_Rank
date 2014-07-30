@@ -3,14 +3,19 @@ module GetScores
     attr_reader :shares, :likes, :comments, :total, :urls, :scores
     def initialize(*urls)
       @urls = urls.join(",")
-      @fb_response = HTTParty.get("http://api.facebook.com/restserver.php?method=links.getStats&format=json&urls=#{@urls}")
+      begin
+        @fb_response = HTTParty.get("http://api.facebook.com/restserver.php?method=links.getStats&format=json&urls=#{@urls}")
+      rescue
+        return
+      end
       @scores = {}
       loop_through_scores
-
     end
+
     def total
       @likes + @comments + @shares
     end
+
     def loop_through_scores
       @fb_response.each do |article|
         url = article["url"]
@@ -25,7 +30,11 @@ module GetScores
   class TwitterFetcher
     attr_reader :count
     def initialize(url)
-      tw_response = HTTParty.get("http://cdn.api.twitter.com/1/urls/count.json?url=#{url}")
+      begin
+        tw_response = HTTParty.get("http://cdn.api.twitter.com/1/urls/count.json?url=#{url}")
+      rescue
+        return
+      end
       @count = tw_response["count"]
     end
   end
@@ -33,7 +42,11 @@ module GetScores
   class RedditFetcher
     attr_reader :score, :num_comments
     def initialize(url)
-      @rd_response = HTTParty.get("http://www.reddit.com/api/info.json?url=#{url}")
+      begin
+        @rd_response = HTTParty.get("http://www.reddit.com/api/info.json?url=#{url}")
+      rescue
+        return
+      end
       @score = 0
       @num_comments = 0
       scrape_scores
