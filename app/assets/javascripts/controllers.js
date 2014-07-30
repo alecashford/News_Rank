@@ -16,7 +16,6 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
             for (i = 0; i < merged.length; i++) {
                 $scope.tiles.push(merged[i])
             }
-            // currently defaults to sort by published date
             $scope.initializePage($scope.sortBy)
         })
     }
@@ -88,7 +87,6 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
     $scope.sortTimePublished = function(){
         $scope.sortBy = "published"
         $scope.initializePage($scope.sortBy)
-        // $scope.initializePage("$scope.sortBy")
         $(".box-right").find(".bb").removeClass("active")
         $(".box-right").find(".bb").eq(0).addClass("active")
     }
@@ -127,11 +125,6 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
         }
         $scope.updateUserFeeds()
     }
-
-    // $scope.calculateAge = function(published) {
-    //     age = new Date().getTime() - parseInt(published)
-    //     return parseInt(age/60000)
-    // }
 
     $scope.toHour = function(published) {
         var age = new Date().getTime() - parseInt(published)
@@ -174,7 +167,7 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
             $scope.userFeeds = []
             $scope.userFeeds = data
         })
-    } // improve
+    }
 
     $scope.deleteFeed = function(feed_id){
         $http.delete('/feeds/delete/'+feed_id)
