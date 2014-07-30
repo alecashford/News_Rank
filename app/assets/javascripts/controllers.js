@@ -153,7 +153,10 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
 
     $scope.imgHelper = function(tile) {
         console.log(tile.visual_url)
-        if (tile.visual_url != "none") {
+        if (tile.visual_url == null) {
+            return "http://i.imgur.com/JFZ8pp4.jpg"
+        }
+        else if (tile.visual_url.substring(0, 7) == "http://") {
             return tile.visual_url
         }
         else {
