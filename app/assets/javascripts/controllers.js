@@ -37,7 +37,7 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
         }
     }
 
-    var makeUsable = function(rawFloat) {
+    $scope.makeUsable = function(rawFloat) {
         return parseInt(rawFloat * 100000000000000000)
     }
 
@@ -128,9 +128,37 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
         $scope.updateUserFeeds()
     }
 
-    $scope.calculateAge = function(published) {
-        age = new Date().getTime() - parseInt(published)
-        return parseInt(age/60000)
+    // $scope.calculateAge = function(published) {
+    //     age = new Date().getTime() - parseInt(published)
+    //     return parseInt(age/60000)
+    // }
+
+    $scope.toHour = function(published) {
+        var age = new Date().getTime() - parseInt(published)
+        var min = parseInt(age/60000)
+        if (min < 60) {
+            return min + "m"
+        }
+        else {
+            hours = parseInt(min / 60)
+            minutes = min % 60
+            if (minutes == 0) {
+                return hours + "h"
+            }
+            else {
+                return hours + "h " + minutes + "m"
+            }
+        }
+    }
+
+    $scope.imgHelper = function(tile) {
+        console.log(tile.visual_url)
+        if (tile.visual_url != "none") {
+            return tile.visual_url
+        }
+        else {
+            return "http://i.imgur.com/JFZ8pp4.jpg"
+        }
     }
 
     $scope.userFeeds = []
@@ -154,6 +182,9 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
         $("input[type=text], textarea").val("")
         $('#fade, .popup:visible').fadeOut('normal', function() { $('#fade, .popup:visible').css('display','none')})
         $scope.initializePage($scope.sortBy)
+        $scope.searchResults = []
+        $('.button-subscribe').css('display','none');
+        $('.suggestions').css('display','none');
     }
 
 }]);
