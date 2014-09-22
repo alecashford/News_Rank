@@ -6,7 +6,7 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
 
     $scope.sortBy = "calculated_rank"
 
-    var getArticles = function() {
+    $scope.getArticles = function() {
         $http({
             method: 'GET',
             url: '/articles'
@@ -21,16 +21,13 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
         })
     }
 
-
-    getArticles()
-
     $scope.initializePage = function(sortBy) {
         $scope.activeTiles = []
         sortFeed($scope.tiles, sortBy)
-        if ($scope.tiles.length < 30) {
+        if ($scope.tiles.length < 18) {
             var minimumCount = $scope.tiles.length
         } else {
-            var minimumCount = 30
+            var minimumCount = 18
         }
         for (i = 0; i < minimumCount; i++) {
             $scope.activeTiles.push($scope.tiles[i])
@@ -75,20 +72,22 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
         }
     }
 
+    $scope.timePublishedButtonActive = false
+
+    $scope.newsRankButtonActive = true
 
     $scope.sortTimePublished = function(){
         $scope.sortBy = "published"
         $scope.initializePage($scope.sortBy)
-        $(".box-right").find(".bb").removeClass("active")
-        $(".box-right").find(".bb").eq(0).addClass("active")
+        $scope.timePublishedButtonActive = true
+        $scope.newsRankButtonActive = false
     }
 
     $scope.sortNewsRank= function(){
         $scope.sortBy = "calculated_rank"
         $scope.initializePage($scope.sortBy)
-        $(".box-right").find(".bb").removeClass("active")
-        $(".box-right").find(".bb").eq(1).addClass("active")
-        // console.log("hey")
+        $scope.timePublishedButtonActive = false
+        $scope.newsRankButtonActive = true
     }
 
     $scope.checkedBoxes = []
@@ -112,6 +111,8 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
 
     $scope.searchResults = []
 
+    $scope.hideSubscribeButton = true
+
     $scope.search = function() {
         if ($scope.searchTerm.substring(0, 7) == "http://") {
             $http.post('/feeds/create',
@@ -128,7 +129,7 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
             .success(function(data) {
             $scope.searchResults = data
             })
-            $('.button-subscribe').css({"display": "block"})
+            $scope.hideSubscribeButton = false
         }
     }
 
@@ -137,8 +138,6 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
             $http.post('/feeds/create',
             {url: $scope.checkedBoxes[i]})
             .success(function() {
-                debugger
-                console.log("Called back from addFromSearch")
                 $scope.resetAll()
                 $scope.updateUserFeeds()
                 getArticles()
@@ -171,7 +170,6 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
     }
 
     $scope.imgHelper = function(tile) {
-        // console.log(tile.visual_url)
         if (tile.visual_url == null) {
             return "http://i.imgur.com/JFZ8pp4.jpg"
         }
@@ -196,7 +194,7 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
     }
 
     $scope.deleteFeed = function(feed_id){
-        $http.delete('/feeds/delete/'+feed_id)
+        $http.delete('/feeds/delete/' + feed_id)
         $scope.updateUserFeeds()
     }
 
@@ -205,8 +203,7 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
         $('#fade, .popup:visible').fadeOut('normal', function() { $('#fade, .popup:visible').css('display','none')})
         $scope.initializePage($scope.sortBy)
         $scope.searchResults = []
-        $('.button-subscribe').css('display','none');
-        $('.suggestions').css('display','none');
+        $scope.hideSubscribeButton = true
     }
 
 }]);

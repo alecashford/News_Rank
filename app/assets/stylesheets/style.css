@@ -589,9 +589,14 @@ input[type="password"]:focus {
   border: none;
 }
 
-.button-subscribe {
+.hidden {
   display: none;
 }
+
+.shown {
+  display: block;
+}
+
 
 .button-sign-in,
 .button-subscribe {
