@@ -11,7 +11,6 @@ class FeedsController < ApplicationController
     finder = FeedlyFinder.new(params[:url])
     result = finder.find
     feed = Feed.find_by_feedly_feed_id(params[:feedId])
-    p "step 1"
     if !feed
       feed = Feed.new
         feed.url = result["results"][0]["website"]
@@ -24,12 +23,9 @@ class FeedsController < ApplicationController
         end
       feed.save
     end
-    p "step 2"
     current_user.feeds << feed
     helper = FeedlyHelper.new(feed.feedly_feed_id)
-    p "step 3"
     helper.add_to_db
-    p "step 4"
     redirect_to '/'
   end
 
