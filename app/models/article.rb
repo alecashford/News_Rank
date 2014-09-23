@@ -5,6 +5,12 @@ class Article < ActiveRecord::Base
 
 def add_article(item, feed)
     p "get here? 1"
+    p "item"
+    p item
+    p "feed"
+    p feed
+    p "self"
+    p self
      self.title = item["title"]
      self.feed_id = feed.id
      self.feedly_id = item["origin"]["streamId"] # feedly feed/stream ID
