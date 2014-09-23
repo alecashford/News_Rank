@@ -26,5 +26,3 @@ class FeedlyFinder
     results
   end
 end
-
-
