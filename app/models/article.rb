@@ -4,6 +4,7 @@ class Article < ActiveRecord::Base
  before_save :calculate_rank
 
 def add_article(item, feed)
+    p "get here? 1"
      self.title = item["title"]
      self.feed_id = feed.id
      self.feedly_id = item["origin"]["streamId"] # feedly feed/stream ID
@@ -17,6 +18,7 @@ def add_article(item, feed)
        self.visual_height = item["visual"]["height"]
        self.visual_width = item["visual"]["width"]
      end
+     p "get here? 2"
      self.twitter_count = GetScores::TwitterFetcher.new(self.canonical_url).count
         reddit_scores = GetScores::RedditFetcher.new(self.canonical_url)
         self.reddit_score = reddit_scores.score
@@ -27,6 +29,7 @@ def add_article(item, feed)
         self.fb_comment_count = fb_scores[self.canonical_url][:comments]
 
      self.save
+     p "get here? 3"
 end
 
 ########## Scoring Algorithm
