@@ -4,7 +4,6 @@ class Article < ActiveRecord::Base
  before_save :calculate_rank
 
 def add_article(item, feed)
-  # debugger
      self.title = item["title"]
      self.feed_id = feed.id
      self.feedly_id = item["origin"]["streamId"] # feedly feed/stream ID
