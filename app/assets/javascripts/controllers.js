@@ -120,7 +120,7 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
             .success(function() {
                 $scope.resetAll()
                 $scope.updateUserFeeds()
-                getArticles()
+                $scope.getArticles()
             })
         }
         else {
@@ -140,7 +140,7 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
             .success(function() {
                 $scope.resetAll()
                 $scope.updateUserFeeds()
-                getArticles()
+                $scope.getArticles()
             })
         }
         $scope.updateUserFeeds()
