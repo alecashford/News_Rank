@@ -18,6 +18,7 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
                 $scope.tiles.push(merged[i])
             }
             $scope.initializePage($scope.sortBy)
+            console.log($scope.tiles)
         })
     }
 

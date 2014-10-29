@@ -19,20 +19,12 @@ class Article < ActiveRecord::Base
       self.visual_width  = item["visual"]["width"]
     end
 
-    p "Did it even get this far?"
-
     twitter_fetcher  = GetScores::TwitterFetcher.new(canonical_url)
     reddit_fetcher   = GetScores::RedditFetcher.new(canonical_url)
     facebook_fetcher = GetScores::FacebookFetcher.new(canonical_url)
 
-    p "We've now instantiated each fetcher object"
-
-    p "fb scores incoming:"
     facebook_scores  = facebook_fetcher.scores
-    p "reddit scores incoming:"
     reddit_scores    = reddit_fetcher.scores
-
-    p "Howabout now?"
 
     self.fb_share_count       = facebook_scores[:shares]
     self.fb_like_count        = facebook_scores[:likes]
