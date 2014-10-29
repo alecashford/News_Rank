@@ -22,10 +22,10 @@ module GetScores
         p "Fetch is true!"
         score = 0
         num_comments = 0
-        fetch["data"]["children"].each do |article|
-          score += article["data"]["score"]
-          num_comments += article["data"]["num_comments"]
-        end
+        # fetch["data"]["children"].each do |article|
+        #   score += article["data"]["score"]
+        #   num_comments += article["data"]["num_comments"]
+        # end
       end
       p "supposedly about to return the scores..."
       {
