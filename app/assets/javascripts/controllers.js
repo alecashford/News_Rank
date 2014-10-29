@@ -18,16 +18,13 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
             // for (i = 0; i < merged.length; i++) {
             //     $scope.tiles.push(merged[i]);
             // }
-            for (var i = 0; i < merged.length; i++) {
-                if (!exists[merged[i]["canonical_url"]]) {
-                    $scope.tiles.push(merged[i]);
-                    exists[merged[i]["canonical_url"]] = true;
-                }
-                if (i === merged.length - 1) {
-                    $scope.initializePage($scope.sortBy);
-                }
-            }
-            // $scope.initializePage($scope.sortBy);
+            // for (var i = 0; i < merged.length; i++) {
+            //     if (!exists[merged[i]["canonical_url"]]) {
+            //         $scope.tiles.push(merged[i]);
+            //         exists[merged[i]["canonical_url"]] = true;
+            //     }
+            // }
+            $scope.initializePage($scope.sortBy);
         })
     }
 
