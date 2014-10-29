@@ -50,9 +50,12 @@ class FeedlyHelper
     if self.stream
       feed = Feed.find_by feedly_feed_id: @feed_id
       self.stream["items"].each do |item|
+        p "Here's what the 'stream' looks like"
         article = Article.new
+        p "Here's the article before 'add_article'"
         p article
         article.add_article(item, feed)
+        p "Here's the article after 'add_article'"
         p article
       end
       true

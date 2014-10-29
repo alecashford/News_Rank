@@ -8,7 +8,7 @@ class FeedsController < ApplicationController
   end
 
   def create
-    p params
+    # p params
     finder = FeedlyFinder.new(params[:url])
     result = finder.find
     feed = Feed.find_by_feedly_feed_id(params[:url])
@@ -23,6 +23,8 @@ class FeedsController < ApplicationController
           feed.topics = result['results'][0]['deliciousTags'].join(',')
         end
       feed.save
+      p "This is the feed:"
+      p feed
     end
 
     current_user.feeds << feed
