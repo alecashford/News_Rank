@@ -19,7 +19,7 @@ module GetScores
     def scores
       p "Now in reddit fetcher."
       if fetch
-        P "Fetch is true!"
+        p "Fetch is true!"
         score = 0
         num_comments = 0
         fetch["data"]["children"].each do |article|
