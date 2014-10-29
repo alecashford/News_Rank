@@ -23,8 +23,11 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
                     $scope.tiles.push(merged[i]);
                     exists[merged[i]["canonical_url"]] = true;
                 }
+                if (i === merged.length - 1) {
+                    $scope.initializePage($scope.sortBy);
+                }
             }
-            $scope.initializePage($scope.sortBy);
+            // $scope.initializePage($scope.sortBy);
         })
     }
 
