@@ -6,6 +6,10 @@ module GetScores
     end
 
     def fetch
+      p "Here I am proving that it is not just the url that is messed up:"
+      p HTTParty.get("http://www.reddit.com/api/info.json?url=http://dailyjs.com/2012/10/19/cqs/")
+      p "Here is the print of what the fetch should look like"
+      p HTTParty.get("http://www.reddit.com/api/info.json?url=#{@url}")
       p "fetching from reddit..."
       response = HTTParty.get("http://www.reddit.com/api/info.json?url=#{@url}")
     rescue
