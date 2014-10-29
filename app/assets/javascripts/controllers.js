@@ -12,15 +12,16 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
             url: '/articles'
         }).success(function(data) {
             $scope.tiles = [];
+            $scope.activeTiles = [];
             var merged = [];
             var exists = {};
             merged = merged.concat.apply(merged, data);
-            // for (var i = 0; i < merged.length; i++) {
-            //     if (!exists[merged[i]["canonical_url"]]) {
-            //         $scope.tiles.push(merged[i]);
-            //         exists[merged[i]["canonical_url"]] = true;
-            //     }
-            // }
+            for (var i = 0; i < merged.length; i++) {
+                if (!exists[merged[i]["canonical_url"]]) {
+                    $scope.tiles.push(merged[i]);
+                    exists[merged[i]["canonical_url"]] = true;
+                }
+            }
             $scope.initializePage($scope.sortBy);
         })
     }
