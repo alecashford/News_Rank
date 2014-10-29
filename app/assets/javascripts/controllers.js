@@ -15,9 +15,6 @@ app.controller('MainController', ["$scope", "$http", function($scope, $http) {
             var merged = [];
             var exists = {};
             merged = merged.concat.apply(merged, data);
-            // for (i = 0; i < merged.length; i++) {
-            //     $scope.tiles.push(merged[i]);
-            // }
             // for (var i = 0; i < merged.length; i++) {
             //     if (!exists[merged[i]["canonical_url"]]) {
             //         $scope.tiles.push(merged[i]);
