@@ -18,7 +18,18 @@
   </div>
 <div class="article-list" infinite-scroll="loadMoreTiles()">
   <ul class="scrollable">
-    <my-tiles></my-tiles>
+    <!-- <my-tiles></my-tiles> -->
+    <li ng-repeat="tile in activeTiles">
+      <a ng-href="{{tile.canonical_url}}" class="item-box" back-img="{{imgHelper(tile)}}">
+        <div class="item-box-title">
+          <span>
+            <div class="title-text">{{tile.title}}</div>
+            <div class="source-text">{{tile.site_url}}</div>
+            <div class="age">{{toHour(tile.published)}}</div>
+          </span>
+        </div>
+     </a>
+    </li>
   </ul>
 </div>
     <div id="bottom-bar">
