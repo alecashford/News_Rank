@@ -24,7 +24,12 @@ class Article < ActiveRecord::Base
     twitter_fetcher  = GetScores::TwitterFetcher.new(canonical_url)
     reddit_fetcher   = GetScores::RedditFetcher.new(canonical_url)
     facebook_fetcher = GetScores::FacebookFetcher.new(canonical_url)
+
+    p "We've now instantiated each fetcher object"
+
+    p "fb scores incoming:"
     facebook_scores  = facebook_fetcher.scores
+    p "reddit scores incoming:"
     reddit_scores    = reddit_fetcher.scores
 
     p "Howabout now?"
